@@ -195,7 +195,8 @@ _set(ST, "Sales at Risk Value", "COALESCE([Sales at Risk per Day], 0)", "#,0")
 _set(SR, "MoM %", "DIVIDE([Net Sales Last Month] - [Net Sales PM], [Net Sales PM])", "▲ +0.0%;▼ -0.0%;0.0%")
 _set(SR, "YoY %", "DIVIDE([Net Sales Last Month] - [Net Sales LY], [Net Sales LY])", "▲ +0.0%;▼ -0.0%;0.0%")
 
-DATA_FOLDER = "D:\\Projects\\kestrel-demo\\powerbi\\data"
+# Absolute path of this checkout's powerbi/data folder (Power BI needs an absolute path).
+DATA_FOLDER = str(ROOT / "data")
 
 w(SM / "definition/database.tmdl", "database\n\tcompatibilityLevel: 1600\n")
 model = ["model Model", f"{T}culture: en-US", f"{T}defaultPowerBIDataSourceVersion: powerBI_V3",

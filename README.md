@@ -8,6 +8,18 @@ A mid-size distributor's data is spread across an ERP, an inventory Excel workbo
 
 **Python ingestion → warehouse (DuckDB locally, BigQuery in the cloud) → dbt models with tests → Power BI dashboard**
 
+## What it found, in 30 seconds
+
+For a business owner, the point is not the pipeline; it is what the joined data shows:
+
+- **Two products collapsing in Karachi only:** Mango Nectar 1L fell from 5,629 units (July) to 1,816 (September); both it and Detergent 1kg run at about a quarter of the national trend.
+- **One salesperson below target three months running:** SP-07 at 55%, 64% and 53%.
+- **A stock-out about to happen:** cooking oil 5L at the Lahore warehouse, 149 units, about 3.7 days left.
+- **Lost customers:** 9 Multan retailers have not ordered since 1 August.
+- **Data problems fixed on the way:** 406 duplicate invoice lines, 80 invoices whose totals did not match their lines, 35 misspelt cities and more (full list below).
+
+Built for mid-size distributors, manufacturers, retailers and e-commerce brands whose numbers live in an ERP, Excel files and sales apps.
+
 ## Pipeline
 
 ```
@@ -114,3 +126,20 @@ How to open and regenerate it: [docs/POWERBI.md](docs/POWERBI.md).
 ## Publish to BigQuery
 
 `python run.py publish` copies the raw tables to BigQuery and runs the same dbt models and tests there. Setup: [docs/BIGQUERY.md](docs/BIGQUERY.md).
+
+## Taking this to production
+
+This demo runs as a full refresh on a laptop. For a client, the same design gets:
+
+- **Scheduling and alerts:** a scheduled run (GitHub Actions, Cloud Composer/Airflow or dbt Cloud) with failure alerts.
+- **Incremental loads** for large fact tables instead of full refreshes.
+- **Source freshness checks** so a missing export is caught before anyone reads a stale report.
+- **Security:** credentials in a secret manager, least-privilege service accounts, and data kept in the client's own cloud project.
+- **Agreed definitions:** the business rules above (slowing, low stock, churn) set with the client, not assumed.
+
+## About
+
+Built by an independent data engineer (SQL, Python, dbt, BigQuery, Power BI). This repo is a portfolio demo on fictional data: it shows the method used for real client work, where the same steps run on a company's own systems.
+
+Want the same for your business? Email: stickitownit@gmail.com
+
