@@ -139,7 +139,7 @@ This demo runs as a full refresh on a laptop. For a client, the same design gets
 
 ## About
 
-Built by an independent data engineer (SQL, Python, dbt, BigQuery, Power BI). This repo is a portfolio demo on fictional data: it shows the method used for real client work, where the same steps run on a company's own systems.
+Built by **Stickitownit**, an independent data & AI engineering studio (SQL, Python, dbt, BigQuery, Power BI). This repo is a portfolio demo on fictional data: it shows the method used for real client work, where the same steps run on a company's own systems.
 
 Want the same for your business? Email: stickitownit@gmail.com
 
