@@ -1,0 +1,166 @@
+{
+  "_note": "Computed from the clean truth data BEFORE data-quality issues were added. All data is fictional.",
+  "period": {
+    "start": "2025-07-01",
+    "end": "2026-10-23"
+  },
+  "row_counts_clean": {
+    "products": 34,
+    "customers": 366,
+    "invoices_and_returns": 15949,
+    "invoice_lines": 101437
+  },
+  "net_sales_pkr_total": 2533032735.6,
+  "net_sales_pkr_by_month": {
+    "2025-07": 149406326.0,
+    "2025-08": 150447880.0,
+    "2025-09": 150007108.0,
+    "2025-10": 159342774.0,
+    "2025-11": 168055151.0,
+    "2025-12": 189122693.0,
+    "2026-01": 169607284.0,
+    "2026-02": 183323125.0,
+    "2026-03": 208183053.0,
+    "2026-04": 155594496.0,
+    "2026-05": 145015783.0,
+    "2026-06": 141436342.0,
+    "2026-07": 152057716.0,
+    "2026-08": 140648800.0,
+    "2026-09": 147120110.0,
+    "2026-10": 123664095.0
+  },
+  "returns_pkr_total": -1357097.15,
+  "planted_signals": {
+    "1_karachi_slowdown": {
+      "question": "Which products are slowing down in Karachi this month?",
+      "expected_answer": [
+        "KD-JUI-001 Fruitara Mango Nectar 1L",
+        "KD-HOM-001 Brightwash Detergent 1kg"
+      ],
+      "units_by_month_karachi": {
+        "KD-JUI-001": {
+          "2026-07": 5629,
+          "2026-08": 5051,
+          "2026-09": 1816,
+          "2026-10": 442
+        },
+        "KD-HOM-001": {
+          "2026-07": 2833,
+          "2026-08": 1980,
+          "2026-09": 2495,
+          "2026-10": 548
+        }
+      },
+      "oct_1_23_vs_avg_jul_sep_same_days_by_city": {
+        "KD-JUI-001": {
+          "Karachi": 0.14,
+          "Hyderabad": 0.48,
+          "Lahore": 0.47,
+          "Faisalabad": 0.66,
+          "Multan": 0.51,
+          "Islamabad": 0.69,
+          "Rawalpindi": 0.5,
+          "Peshawar": 1.16
+        },
+        "KD-HOM-001": {
+          "Karachi": 0.31,
+          "Hyderabad": 1.28,
+          "Lahore": 1.27,
+          "Faisalabad": 1.64,
+          "Multan": 0.72,
+          "Islamabad": 0.79,
+          "Rawalpindi": 1.58,
+          "Peshawar": 1.84
+        }
+      },
+      "seasonality_adjusted_bottom5_karachi": {
+        "KD-HOM-001": 0.24,
+        "KD-JUI-001": 0.25,
+        "KD-PER-004": 0.59,
+        "KD-TEA-001": 0.72,
+        "KD-PER-002": 0.74
+      },
+      "method": "Karachi daily-rate change (1-23 Oct vs Jul-Sep) divided by rest-of-country change; 1.0 = same trend as the rest of the country"
+    },
+    "2_salesperson_below_target": {
+      "question": "Which salesperson has been below 85% of target three months running?",
+      "expected_answer": "SP-07",
+      "monthly": [
+        {
+          "month": "2026-07",
+          "net_amount_pkr": 8261998.0,
+          "target_pkr": 14990000,
+          "attainment": 0.55
+        },
+        {
+          "month": "2026-08",
+          "net_amount_pkr": 9590453.05,
+          "target_pkr": 14990000,
+          "attainment": 0.64
+        },
+        {
+          "month": "2026-09",
+          "net_amount_pkr": 7887536.95,
+          "target_pkr": 14990000,
+          "attainment": 0.53
+        },
+        {
+          "month": "2026-10",
+          "net_amount_pkr": 11275329.65,
+          "target_pkr": 14990000,
+          "attainment": 0.75
+        }
+      ],
+      "note": "October is month-to-date (to 23 Oct) against a full-month target. Other order bookers sit just under 100% some months (targets are set at +8%); only this one is below 85%."
+    },
+    "3_low_stock": {
+      "question": "Which items are about to run out?",
+      "expected_answer": "KD-OIL-002 at LHE-WH",
+      "snapshot_week_ending": "2026-10-18",
+      "closing_qty": 149,
+      "avg_units_per_day_last_28d": 39.9,
+      "days_of_cover": 3.7
+    },
+    "4_uht_growth_islamabad_rawalpindi": {
+      "question": "Where is UHT milk growing?",
+      "expected_answer": "Islamabad and Rawalpindi, stepping up from July 2026 (new modern-trade outlets opened June-July)",
+      "units_by_month": {
+        "2026-03": 7833,
+        "2026-04": 6636,
+        "2026-05": 8132,
+        "2026-06": 6183,
+        "2026-07": 10696,
+        "2026-08": 10808,
+        "2026-09": 12111,
+        "2026-10": 9028
+      }
+    },
+    "5_churned_customers": {
+      "question": "Which customers stopped ordering?",
+      "expected_answer": "9 Multan retailers, no orders since 2026-08-01",
+      "customer_ids": [
+        "C0031",
+        "C0040",
+        "C0052",
+        "C0093",
+        "C0147",
+        "C0199",
+        "C0214",
+        "C0266",
+        "C0356"
+      ]
+    }
+  },
+  "data_quality_issues_planted": {
+    "customers_city_misspelt": 35,
+    "customers_missing_salesperson": 11,
+    "invoice_header_total_mismatch": 80,
+    "invoice_lines_sku_bad_case_or_space": 1014,
+    "invoice_lines_exact_duplicates": 406,
+    "invoice_lines_unknown_sku": 54,
+    "stock_rows_sku_without_dashes_ISB": 2380,
+    "stock_sheets_with_title_rows": 3,
+    "visits_duplicate_visit_id": 127,
+    "visits_timestamps_in_utc_not_pkt": "all"
+  }
+}

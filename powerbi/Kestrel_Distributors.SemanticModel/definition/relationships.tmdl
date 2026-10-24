@@ -1,0 +1,4 @@
+relationship e9cf296d-2158-5a05-9b8f-e166956e62d5
+	fromColumn: rpt_sales_overview.invoice_date
+	toColumn: dim_date.date_day
+

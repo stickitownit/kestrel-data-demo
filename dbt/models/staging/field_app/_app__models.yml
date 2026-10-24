@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_app__salespeople
+    description: One row per salesperson (order booker).
+    columns:
+      - name: salesperson_id
+        data_tests: [unique, not_null]
+      - name: salesperson_name
+        data_tests: [not_null]
+
+  - name: stg_app__targets
+    description: Monthly sales target per salesperson.
+    data_tests:
+      - unique_combination: {columns: [salesperson_id, target_month]}
+    columns:
+      - name: salesperson_id
+        data_tests:
+          - not_null
+          - relationships: {to: ref('stg_app__salespeople'), field: salesperson_id}
+      - name: target_month
+        data_tests: [not_null]
+      - name: target_pkr
+        data_tests: [not_null]
+
+  - name: stg_app__visits
+    description: >
+      One row per shop visit after removing duplicate visit_ids (127 sync
+      retries). visited_at_pkt and visit_date are in Asia/Karachi time.
+    data_tests:
+      - row_count_equals: {expected: 21106}   # 21,233 raw records - 127 duplicates
+    columns:
+      - name: visit_id
+        data_tests: [unique, not_null]
+      - name: salesperson_id
+        data_tests:
+          - not_null
+          - relationships: {to: ref('stg_app__salespeople'), field: salesperson_id}
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships: {to: ref('stg_erp__customers'), field: customer_id}
+      - name: outcome
+        data_tests:
+          - accepted_values: {values: [order, no_order, shop_closed, owner_absent]}
+      - name: order_ref
+        data_tests:
+          - relationships: {to: ref('stg_erp__invoices'), field: invoice_id}

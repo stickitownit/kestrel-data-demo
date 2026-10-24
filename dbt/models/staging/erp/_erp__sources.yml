@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: erp
+    description: ERP CSV exports, landed as text by ingestion/load_all.py
+    schema: "{{ var('raw_schema', 'raw') }}"
+    tables:
+      - name: products
+        identifier: erp_products
+      - name: customers
+        identifier: erp_customers
+      - name: sales_invoices
+        identifier: erp_sales_invoices
+        description: One row per invoice (INV) or return (RET). Header totals are text and wrong on 80 invoices.
+      - name: sales_invoice_lines
+        identifier: erp_sales_invoice_lines
+        description: Contains 406 exact duplicate rows from an export glitch.

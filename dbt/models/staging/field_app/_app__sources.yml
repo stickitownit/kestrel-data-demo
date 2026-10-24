@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: field_app
+    description: Field-sales app exports (API-style JSON and JSON Lines).
+    schema: "{{ var('raw_schema', 'raw') }}"
+    tables:
+      - name: salespeople
+        identifier: app_salespeople
+      - name: monthly_targets
+        identifier: app_monthly_targets
+      - name: visits
+        identifier: app_visits
+        description: Timestamps in UTC. 127 duplicate records from app sync retries.

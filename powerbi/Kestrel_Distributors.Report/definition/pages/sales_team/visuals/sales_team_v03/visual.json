@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "sales_team_v03",
+  "position": {
+    "x": 16,
+    "y": 38,
+    "z": 3000,
+    "width": 580,
+    "height": 36,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Attainment vs target over the last 3 full months (Jul – Sep 2026)  ·  Illustrative data, fictional company",
+                    "textStyle": {
+                      "fontSize": "9pt",
+                      "color": "#DBEAFE"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

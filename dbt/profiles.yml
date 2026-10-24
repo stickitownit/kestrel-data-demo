@@ -1,0 +1,24 @@
+# Two targets, same models:
+#   dev (default) - local DuckDB file, no accounts needed.
+#                   run.py sets KESTREL_DUCKDB_PATH to <repo>/warehouse/kestrel.duckdb.
+#   bq            - BigQuery, used to publish for Looker Studio (`python run.py publish`).
+#                   Signs in with your Google login via
+#                   `gcloud auth application-default login` (no key files in the repo).
+kestrel:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('KESTREL_DUCKDB_PATH', '../warehouse/kestrel.duckdb') }}"
+      schema: main
+      threads: 4
+    bq:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('KESTREL_GCP_PROJECT', 'kestrel-demo-512601') }}"
+      dataset: marts
+      location: "{{ env_var('KESTREL_BQ_LOCATION', 'US') }}"
+      threads: 4
+      priority: interactive
+      job_execution_timeout_seconds: 300
+      job_retries: 1

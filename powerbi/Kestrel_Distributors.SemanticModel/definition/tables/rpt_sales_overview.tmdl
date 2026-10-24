@@ -1,0 +1,242 @@
+table rpt_sales_overview
+	lineageTag: b77b09b9-c115-5593-ab2e-e9e86f370d56
+
+	measure 'Net Sales' = SUM(rpt_sales_overview[net_amount_pkr])
+		formatString: \R\s\ #,0
+		lineageTag: 81a61294-5a50-5297-b7f8-5f7bbef8a990
+
+	measure Returns = -SUM(rpt_sales_overview[returns_amount_pkr])
+		formatString: \R\s\ #,0
+		lineageTag: 5a9239cf-38fb-5971-af1e-a2305a67e159
+
+	measure 'Returns %' = DIVIDE([Returns], [Net Sales] + [Returns])
+		formatString: 0.0%
+		lineageTag: 14d879f2-2ec7-5545-91c7-4754ff295c5b
+
+	measure 'Active Customers' = CALCULATE(DISTINCTCOUNT(rpt_sales_overview[customer_id]), rpt_sales_overview[is_return] = FALSE())
+		formatString: #,0
+		lineageTag: 34094e6d-1830-584a-9a66-51e74455875f
+
+	measure 'Gross Margin %' = DIVIDE([Net Sales] - SUM(rpt_sales_overview[cost_amount_pkr]), [Net Sales])
+		formatString: 0.0%
+		lineageTag: 3ebc8178-607d-5df5-8403-a18f1522bb04
+
+	measure 'Net Sales PM' = VAR maxd = CALCULATE(MAX(rpt_sales_overview[invoice_date]), REMOVEFILTERS()) VAR b = EOMONTH(maxd, -2) + 1 RETURN CALCULATE([Net Sales], REMOVEFILTERS(dim_date), dim_date[date_day] >= EDATE(b, -1), dim_date[date_day] <= EOMONTH(EDATE(b, -1), 0))
+		formatString: #,0
+		lineageTag: cf417d68-044a-5b0b-829a-b72fb6b29464
+
+	measure 'MoM %' = DIVIDE([Net Sales Last Month] - [Net Sales PM], [Net Sales PM])
+		formatString: ▲ +0.0%;▼ -0.0%;0.0%
+		lineageTag: fde9581a-70e9-5e04-9a93-14d7974ffe16
+
+	measure 'Net Sales LY' = VAR maxd = CALCULATE(MAX(rpt_sales_overview[invoice_date]), REMOVEFILTERS()) VAR b = EOMONTH(maxd, -2) + 1 RETURN CALCULATE([Net Sales], REMOVEFILTERS(dim_date), dim_date[date_day] >= EDATE(b, -12), dim_date[date_day] <= EOMONTH(EDATE(b, -12), 0))
+		formatString: #,0
+		lineageTag: e74130d7-4424-5eeb-a035-f4dacc92705f
+
+	measure 'YoY %' = DIVIDE([Net Sales Last Month] - [Net Sales LY], [Net Sales LY])
+		formatString: ▲ +0.0%;▼ -0.0%;0.0%
+		lineageTag: 2537eb22-3d26-5c46-ad38-e3d6bfa24db9
+
+	measure 'Data Label' = "Illustrative data — fictional company"
+		lineageTag: cac7faef-5b57-564f-8819-ee322c7c69cd
+
+	measure 'Net Sales Cr' = [Net Sales] / 10000000
+		formatString: \R\s 0.0 \C\r
+		lineageTag: 60db2908-9ab5-5c61-b393-8487f4448a02
+
+	measure 'Last Full Month' = VAR maxd = CALCULATE(MAX(rpt_sales_overview[invoice_date]), REMOVEFILTERS()) VAR b = EOMONTH(maxd, -2) + 1 RETURN FORMAT(b, "mmmm yyyy")
+		lineageTag: 6211f4e1-f593-53d5-92d0-bfea756e1d9e
+
+	measure 'Sales at Stake Text' = VAR v = [Lost Sales per Month] + [Churned Sales per Month] + [Target Shortfall 3M] / 3 RETURN IF(ISBLANK(v), BLANK(), IF(ABS(v) >= 10000000, "Rs " & FORMAT(v / 10000000, "0.0") & " Cr", "Rs " & FORMAT(v / 100000, "0.0") & " lakh"))
+		lineageTag: 58e0cfba-4483-54db-b8d6-5f1fe6a24b0e
+
+	measure 'Net Sales Last Month' = VAR maxd = CALCULATE(MAX(rpt_sales_overview[invoice_date]), REMOVEFILTERS()) VAR b = EOMONTH(maxd, -2) + 1 RETURN CALCULATE([Net Sales], REMOVEFILTERS(dim_date), dim_date[date_day] >= EDATE(b, 0), dim_date[date_day] <= EOMONTH(EDATE(b, 0), 0))
+		formatString: #,0
+		lineageTag: 98e2d16a-86f0-5dad-a3c8-31428c589d84
+
+	measure 'Net Sales Last Month Text' = VAR v = [Net Sales Last Month] RETURN IF(ISBLANK(v), BLANK(), IF(ABS(v) >= 10000000, "Rs " & FORMAT(v / 10000000, "0.0") & " Cr", "Rs " & FORMAT(v / 100000, "0.0") & " lakh"))
+		lineageTag: 4d029c44-25f1-5043-8810-75c73e26d0cf
+
+	measure 'Net Sales Text' = VAR v = [Net Sales] RETURN IF(ISBLANK(v), BLANK(), IF(ABS(v) >= 10000000, "Rs " & FORMAT(v / 10000000, "0.0") & " Cr", "Rs " & FORMAT(v / 100000, "0.0") & " lakh"))
+		lineageTag: 02cc51a8-00c2-5b3d-99b6-cb81f301b722
+
+	measure 'Active Customers LM' = VAR maxd = CALCULATE(MAX(rpt_sales_overview[invoice_date]), REMOVEFILTERS()) VAR b = EOMONTH(maxd, -2) + 1 RETURN CALCULATE(DISTINCTCOUNT(rpt_sales_overview[customer_id]), REMOVEFILTERS(dim_date), dim_date[date_day] >= b, dim_date[date_day] <= EOMONTH(b, 0), rpt_sales_overview[is_return] = FALSE())
+		formatString: #,0
+		lineageTag: d188b3cc-cf10-5dee-81e4-d9d5e2be2536
+
+	measure 'Gross Margin LM' = VAR maxd = CALCULATE(MAX(rpt_sales_overview[invoice_date]), REMOVEFILTERS()) VAR b = EOMONTH(maxd, -2) + 1 RETURN CALCULATE([Gross Margin %], REMOVEFILTERS(dim_date), dim_date[date_day] >= b, dim_date[date_day] <= EOMONTH(b, 0))
+		formatString: 0.0%
+		lineageTag: e75f7c08-e158-55e0-b1ed-a4b1bcc4378e
+
+	column invoice_line_id
+		dataType: string
+		lineageTag: 846350f3-40eb-5041-9a67-81687b60639f
+		summarizeBy: none
+		sourceColumn: invoice_line_id
+
+	column invoice_id
+		dataType: string
+		lineageTag: 85454662-0dea-5aba-9f04-cf6f7e9cd676
+		summarizeBy: none
+		sourceColumn: invoice_id
+
+	column invoice_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 201d2f8d-ae86-5a71-b202-34ff4b6b8a3f
+		summarizeBy: none
+		sourceColumn: invoice_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column invoice_month
+		dataType: dateTime
+		formatString: mmm yyyy
+		lineageTag: 93e0e046-11e1-5e09-8251-54890f2eb217
+		summarizeBy: none
+		sourceColumn: invoice_month
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column doc_type
+		dataType: string
+		lineageTag: d5b76bd7-af58-5341-8dd3-0a4ecc5eb655
+		summarizeBy: none
+		sourceColumn: doc_type
+
+	column is_return
+		dataType: boolean
+		lineageTag: ce537716-4bb5-5d70-8036-a39e18bd0202
+		summarizeBy: none
+		sourceColumn: is_return
+
+	column city
+		dataType: string
+		lineageTag: dc79f2f0-8009-5413-bc9c-17de4c305252
+		summarizeBy: none
+		sourceColumn: city
+
+	column warehouse_id
+		dataType: string
+		lineageTag: d74c0cd9-a917-5773-a761-bb4efc3bf547
+		summarizeBy: none
+		sourceColumn: warehouse_id
+
+	column customer_id
+		dataType: string
+		lineageTag: 60da8077-1e1e-5867-9456-b244ac07e27e
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column customer_name
+		dataType: string
+		lineageTag: 773a6b73-fff6-5249-8c42-5caac91456ed
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column customer_type
+		dataType: string
+		lineageTag: 75417bee-e7d4-5377-a6d4-eaaee803748d
+		summarizeBy: none
+		sourceColumn: customer_type
+
+	column salesperson_id
+		dataType: string
+		lineageTag: bf0eedc8-6ce1-52ab-8b2a-b22263c3f91a
+		summarizeBy: none
+		sourceColumn: salesperson_id
+
+	column salesperson_name
+		dataType: string
+		lineageTag: 29f9e78e-dc7b-5601-9817-f32c432b94fe
+		summarizeBy: none
+		sourceColumn: salesperson_name
+
+	column product_sku
+		dataType: string
+		lineageTag: 65c861e6-6195-55be-9dca-36b98e3fd2c7
+		summarizeBy: none
+		sourceColumn: product_sku
+
+	column product_name
+		dataType: string
+		lineageTag: b8485891-ba79-5a22-abbd-b4450e029792
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column category
+		dataType: string
+		lineageTag: a0eecbc6-3611-58be-8e17-0561d3f1a992
+		summarizeBy: none
+		sourceColumn: category
+
+	column brand
+		dataType: string
+		lineageTag: 9cde604a-b8d7-5cac-aa50-4182dcf08b16
+		summarizeBy: none
+		sourceColumn: brand
+
+	column is_unknown_product
+		dataType: boolean
+		lineageTag: f1d12d15-5518-5294-9b43-69038d72b7bd
+		summarizeBy: none
+		sourceColumn: is_unknown_product
+
+	column quantity
+		dataType: int64
+		formatString: #,0
+		lineageTag: 01d2899a-ed71-56ed-9196-c5707f59b4ae
+		summarizeBy: sum
+		sourceColumn: quantity
+
+	column gross_amount_pkr
+		dataType: decimal
+		formatString: #,0
+		lineageTag: 52e90740-efe5-5133-9f6c-e22dc77204d5
+		summarizeBy: sum
+		sourceColumn: gross_amount_pkr
+
+	column discount_amount_pkr
+		dataType: decimal
+		formatString: #,0
+		lineageTag: ecae8ee4-445e-57f1-9037-d65f7497e862
+		summarizeBy: sum
+		sourceColumn: discount_amount_pkr
+
+	column net_amount_pkr
+		dataType: decimal
+		formatString: #,0
+		lineageTag: 34191ee7-1641-5c84-9914-32b6f49c0a36
+		summarizeBy: sum
+		sourceColumn: net_amount_pkr
+
+	column cost_amount_pkr
+		dataType: decimal
+		formatString: #,0
+		lineageTag: bff7920b-fcc7-5982-8ff0-967e431609d2
+		summarizeBy: sum
+		sourceColumn: cost_amount_pkr
+
+	column returns_amount_pkr
+		dataType: decimal
+		formatString: #,0
+		lineageTag: 8067f656-1e64-5cfc-8254-f132c23374c0
+		summarizeBy: sum
+		sourceColumn: returns_amount_pkr
+
+	column city_location = rpt_sales_overview[city] & ", Pakistan"
+		dataType: string
+		lineageTag: 4870cb15-8621-5cd9-b3b6-aaf389e15ef8
+		dataCategory: Place
+		summarizeBy: none
+
+	partition rpt_sales_overview = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "\rpt_sales_overview.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"invoice_line_id", type text}, {"invoice_id", type text}, {"invoice_date", type date}, {"invoice_month", type date}, {"doc_type", type text}, {"is_return", type logical}, {"city", type text}, {"warehouse_id", type text}, {"customer_id", type text}, {"customer_name", type text}, {"customer_type", type text}, {"salesperson_id", type text}, {"salesperson_name", type text}, {"product_sku", type text}, {"product_name", type text}, {"category", type text}, {"brand", type text}, {"is_unknown_product", type logical}, {"quantity", Int64.Type}, {"gross_amount_pkr", Currency.Type}, {"discount_amount_pkr", Currency.Type}, {"net_amount_pkr", Currency.Type}, {"cost_amount_pkr", Currency.Type}, {"returns_amount_pkr", Currency.Type}}, "en-US")
+				in
+					Typed
+

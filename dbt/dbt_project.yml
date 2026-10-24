@@ -1,0 +1,42 @@
+name: kestrel
+version: "0.3.0"
+config-version: 2
+profile: kestrel
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages", "logs"]
+
+vars:
+  raw_schema: raw   # where ingestion/load_all.py lands the source tables
+  # Business rules used by the marts (change here, not in SQL)
+  slowdown_index_threshold: 0.7   # seasonality-adjusted index below this = slowing down
+  low_stock_days: 7               # days of cover below this = low stock
+  at_risk_days: 30                # no order for this many days = at risk
+  churned_days: 75                # no order for this many days = churned
+  # Reconciliation target from data/answer_key.json
+  answer_key_net_sales_pkr: 2533032735.60
+  answer_key_tolerance_pkr: 1
+
+models:
+  kestrel:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table
+
+seeds:
+  kestrel:
+    +schema: seeds
+    answer_key_monthly_net_sales:
+      +column_types:
+        month_start: date
+        net_sales_pkr: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "stock_v05",
+  "position": {
+    "x": 20,
+    "y": 88,
+    "z": 5000,
+    "height": 72,
+    "width": 300,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_stock_cover"
+                    }
+                  },
+                  "Property": "warehouse_id"
+                }
+              },
+              "queryRef": "mart_stock_cover.warehouse_id",
+              "nativeQueryRef": "warehouse_id",
+              "active": true,
+              "displayName": "Warehouse"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

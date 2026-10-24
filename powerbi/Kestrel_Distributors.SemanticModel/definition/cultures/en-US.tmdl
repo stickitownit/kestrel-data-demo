@@ -1,0 +1,1069 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "rpt_sales_overview.sales_at_stake_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "Sales at Stake Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sales to recover per month (estimate)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.net_sales_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "Net Sales Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Net sales, Jul 2025 – Oct 2026": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.yoy_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "YoY %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Last full month vs a year earlier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "vs same month last year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "vs a year earlier": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.active_customers_lm": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "Active Customers LM"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Active customers, last month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.category": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "category"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Category": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.last_full_month": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "Last Full Month"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Last full month (cards below)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.net_sales_last_month_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "Net Sales Last Month Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Net sales, last full month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.mom_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "MoM %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vs previous month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.gross_margin_lm": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "Gross Margin LM"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gross margin, last full month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.net_sales_cr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "Net Sales Cr"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Net sales (Rs Cr)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "rpt_sales_overview.city_location": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "rpt_sales_overview",
+			          "ConceptualProperty": "city_location"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_customer_activity.churn_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_customer_activity",
+			          "ConceptualProperty": "Churn Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sales lost per month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_customer_activity.churn_detail": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_customer_activity",
+			          "ConceptualProperty": "Churn Detail"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "What the data shows": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_customer_activity.customer_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_customer_activity",
+			          "ConceptualProperty": "customer_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Customer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_customer_activity.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_customer_activity",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_customer_activity.last_order_date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_customer_activity",
+			          "ConceptualProperty": "last_order_date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Last order": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_customer_activity.days_since_last_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_customer_activity",
+			          "ConceptualProperty": "days_since_last_order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Days since": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_customer_activity.customer_monthly_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_customer_activity",
+			          "ConceptualProperty": "Customer Monthly Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Usual monthly sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_product_city_trend.lost_sales_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_product_city_trend",
+			          "ConceptualProperty": "Lost Sales Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gap per month vs trend": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_product_city_trend.slowdown_detail": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_product_city_trend",
+			          "ConceptualProperty": "Slowdown Detail"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "What the data shows": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_product_city_trend.product_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_product_city_trend",
+			          "ConceptualProperty": "product_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Product": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_product_city_trend.city": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_product_city_trend",
+			          "ConceptualProperty": "city"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "City": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_product_city_trend.seasonality_index": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_product_city_trend",
+			          "ConceptualProperty": "Seasonality Index"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Index": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_product_city_trend.lost_lakh": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_product_city_trend",
+			          "ConceptualProperty": "lost_lakh"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gap": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_salesperson_attainment.shortfall_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_salesperson_attainment",
+			          "ConceptualProperty": "Shortfall Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target missed, 3 months": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Gap for reps under 85%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_salesperson_attainment.rep_detail": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_salesperson_attainment",
+			          "ConceptualProperty": "Rep Detail"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "What the data shows": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_salesperson_attainment.attainment_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_salesperson_attainment",
+			          "ConceptualProperty": "Attainment %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Attainment, 3 months": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Attainment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_salesperson_attainment.visit_to_order_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_salesperson_attainment",
+			          "ConceptualProperty": "Visit to Order %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Visits → orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Visit → order": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_salesperson_attainment.salesperson_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_salesperson_attainment",
+			          "ConceptualProperty": "salesperson_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Salesperson": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_salesperson_attainment.month_start": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_salesperson_attainment",
+			          "ConceptualProperty": "month_start"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_salesperson_attainment.target_pkr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_salesperson_attainment",
+			          "ConceptualProperty": "Target PKR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_salesperson_attainment.actual_pkr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_salesperson_attainment",
+			          "ConceptualProperty": "Actual PKR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_stock_cover.stock_risk_text": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_stock_cover",
+			          "ConceptualProperty": "Stock Risk Text"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sales at risk per day": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_stock_cover.stock_detail": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_stock_cover",
+			          "ConceptualProperty": "Stock Detail"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "What the data shows": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_stock_cover.warehouse_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_stock_cover",
+			          "ConceptualProperty": "warehouse_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Warehouse": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_stock_cover.stock_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_stock_cover",
+			          "ConceptualProperty": "Stock Status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Status for the selected warehouse": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_stock_cover.product_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_stock_cover",
+			          "ConceptualProperty": "product_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Product": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_stock_cover.days_of_cover": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_stock_cover",
+			          "ConceptualProperty": "Days of Cover"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Days of cover": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_stock_cover.closing_qty": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_stock_cover",
+			          "ConceptualProperty": "closing_qty"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "In stock": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_stock_cover.avg_units_per_day_28d": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_stock_cover",
+			          "ConceptualProperty": "avg_units_per_day_28d"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Sold per day": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_date.month_start": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_date",
+			          "ConceptualProperty": "month_start"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_data_quality.issues_found": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_data_quality",
+			          "ConceptualProperty": "Issues Found"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Data problems found and fixed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_data_quality.sort_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_data_quality",
+			          "ConceptualProperty": "sort_order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "#": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_data_quality.issue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_data_quality",
+			          "ConceptualProperty": "issue"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Problem": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_data_quality.source_system": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_data_quality",
+			          "ConceptualProperty": "source_system"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Source": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_data_quality.affected_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_data_quality",
+			          "ConceptualProperty": "affected_count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rows affected": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mart_data_quality.handling": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "mart_data_quality",
+			          "ConceptualProperty": "handling"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "How it was fixed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

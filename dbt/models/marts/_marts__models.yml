@@ -1,0 +1,143 @@
+version: 2
+
+models:
+  # ---------- dimensions ----------
+  - name: dim_date
+    columns:
+      - name: date_day
+        data_tests: [unique, not_null]
+
+  - name: dim_product
+    description: Product master plus an "Unknown product" row (product_sku = UNKNOWN).
+    data_tests:
+      - row_count_equals: {expected: 35}
+    columns:
+      - name: product_sku
+        data_tests: [unique, not_null]
+
+  - name: dim_customer
+    columns:
+      - name: customer_id
+        data_tests: [unique, not_null]
+      - name: city
+        data_tests:
+          - accepted_values:
+              values: [Karachi, Hyderabad, Lahore, Faisalabad, Multan, Islamabad, Rawalpindi, Peshawar]
+      - name: customer_type
+        data_tests:
+          - accepted_values: {values: [Retailer, Wholesaler, Modern Trade]}
+      - name: salesperson_id
+        data_tests:
+          - not_null
+          - relationships: {to: ref('dim_salesperson'), field: salesperson_id}
+
+  - name: dim_salesperson
+    description: Salespeople plus an "Unassigned" row.
+    columns:
+      - name: salesperson_id
+        data_tests: [unique, not_null]
+
+  # ---------- facts ----------
+  - name: fct_sales_lines
+    description: Grain = invoice line. Returns included as negative quantities.
+    data_tests:
+      - row_count_equals: {expected: 101437}
+    columns:
+      - name: invoice_line_id
+        data_tests: [unique, not_null]
+      - name: doc_type
+        data_tests:
+          - accepted_values: {values: [INV, RET]}
+      - name: invoice_date
+        data_tests:
+          - not_null
+          - relationships: {to: ref('dim_date'), field: date_day}
+      - name: product_sku
+        data_tests:
+          - not_null
+          - relationships: {to: ref('dim_product'), field: product_sku}
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships: {to: ref('dim_customer'), field: customer_id}
+      - name: salesperson_id
+        data_tests:
+          - relationships: {to: ref('dim_salesperson'), field: salesperson_id}
+      - name: is_unknown_product
+        description: 54 lines (KD-SNK-099). Warns at 54, errors if it changes.
+        data_tests:
+          - count_where_true:
+              config:
+                severity: error
+                warn_if: "!=0"
+                error_if: "!=54"
+
+  - name: fct_stock_weekly
+    description: Grain = warehouse x SKU x week ending (Sunday).
+    columns:
+      - name: stock_week_id
+        data_tests: [unique, not_null]
+      - name: product_sku
+        data_tests:
+          - relationships: {to: ref('dim_product'), field: product_sku}
+
+  - name: fct_visits
+    description: Grain = one shop visit.
+    columns:
+      - name: visit_id
+        data_tests: [unique, not_null]
+      - name: outcome
+        data_tests:
+          - accepted_values: {values: [order, no_order, shop_closed, owner_absent]}
+      - name: customer_id
+        data_tests:
+          - relationships: {to: ref('dim_customer'), field: customer_id}
+      - name: salesperson_id
+        data_tests:
+          - relationships: {to: ref('dim_salesperson'), field: salesperson_id}
+
+  - name: fct_targets_monthly
+    description: Grain = salesperson x month.
+    columns:
+      - name: target_id
+        data_tests: [unique, not_null]
+      - name: salesperson_id
+        data_tests:
+          - relationships: {to: ref('dim_salesperson'), field: salesperson_id}
+
+  # ---------- business marts ----------
+  - name: mart_product_city_trend
+    description: >
+      Product x city: daily units this month (to date) vs the 3 prior full months,
+      and the seasonality-adjusted index against the rest of the country.
+    columns:
+      - name: product_city_id
+        data_tests: [unique, not_null]
+
+  - name: mart_salesperson_attainment
+    description: "Salesperson x month: actual, target, attainment, visits and visit-to-order rate."
+    columns:
+      - name: attainment_id
+        data_tests: [unique, not_null]
+
+  - name: mart_stock_cover
+    description: "Warehouse x SKU at the latest snapshot: closing stock, 28-day average sales, days of cover."
+    columns:
+      - name: stock_cover_id
+        data_tests: [unique, not_null]
+
+  - name: mart_customer_activity
+    description: One row per customer with last order date and at-risk / churned flags.
+    data_tests:
+      - row_count_equals: {expected: 366}
+    columns:
+      - name: customer_id
+        data_tests: [unique, not_null]
+
+  - name: mart_data_quality
+    description: One row per data-quality issue with the count affected and how it was handled.
+    data_tests:
+      - row_count_equals: {expected: 10}
+    columns:
+      - name: issue
+        data_tests: [unique, not_null]

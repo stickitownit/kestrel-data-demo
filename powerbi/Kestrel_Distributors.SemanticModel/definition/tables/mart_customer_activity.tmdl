@@ -1,0 +1,131 @@
+table mart_customer_activity
+	lineageTag: cc32fac4-817c-548b-86e6-99d69836d261
+
+	measure 'Churned Customers' = CALCULATE(COUNTROWS(mart_customer_activity), mart_customer_activity[is_churned] = TRUE())
+		formatString: #,0
+		lineageTag: 1deb1635-daed-5778-bc43-6e2c3471fc38
+
+	measure 'Churned Sales per Month' = CALCULATE(SUM(mart_customer_activity[monthly_value]), mart_customer_activity[is_churned] = TRUE())
+		formatString: #,0
+		lineageTag: 31169578-250a-5a5f-9bd8-9662857b8152
+
+	measure 'Churn Text' = VAR v = [Churned Sales per Month] RETURN IF(ISBLANK(v), BLANK(), IF(ABS(v) >= 10000000, "Rs " & FORMAT(v / 10000000, "0.0") & " Cr", "Rs " & FORMAT(v / 100000, "0.0") & " lakh"))
+		lineageTag: c329cde8-8155-5d43-adbb-bf472bee45d4
+
+	measure 'Churn Detail' = VAR n = [Churned Customers] VAR t = TOPN(1, ADDCOLUMNS(VALUES(mart_customer_activity[city]), "@n", CALCULATE(COUNTROWS(mart_customer_activity), mart_customer_activity[is_churned] = TRUE())), [@n], DESC) VAR c = MAXX(t, [@n]) RETURN n & " retailers stopped ordering · " & IF(c = n, "all in ", "most in ") & MAXX(t, mart_customer_activity[city])
+		lineageTag: b3125d73-1d7b-5712-a7bc-441bc21ca154
+
+	measure 'At-Risk Customers' = CALCULATE(COUNTROWS(mart_customer_activity), mart_customer_activity[is_at_risk] = TRUE())
+		formatString: #,0
+		lineageTag: f76f7d26-516e-5382-b4c4-f5d6aab4434e
+
+	measure 'Customer Monthly Value' = SUM(mart_customer_activity[monthly_value])
+		formatString: \R\s #,0
+		lineageTag: aa48dae0-cd01-56a8-b315-6ddb39f51b5d
+
+	column customer_id
+		dataType: string
+		lineageTag: b8d6b6fb-4321-54b0-bc6d-6717e7eac6c5
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column customer_name
+		dataType: string
+		lineageTag: 6bd158c6-2452-543e-9877-07fcb7495b26
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column customer_type
+		dataType: string
+		lineageTag: 7aede1ab-b654-5bf0-bb5a-995335a21deb
+		summarizeBy: none
+		sourceColumn: customer_type
+
+	column city
+		dataType: string
+		lineageTag: a998fde2-368c-57e1-8c85-b5bc7277cdf0
+		summarizeBy: none
+		sourceColumn: city
+
+	column salesperson_id
+		dataType: string
+		lineageTag: 6889271d-bbcb-5101-9e19-1977945b3745
+		summarizeBy: none
+		sourceColumn: salesperson_id
+
+	column first_order_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 4b759799-dfaa-5d55-8312-925ee05b0a9a
+		summarizeBy: none
+		sourceColumn: first_order_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column last_order_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: ae76247f-09f9-56d4-8ac2-7dd7dc93615f
+		summarizeBy: none
+		sourceColumn: last_order_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column order_days
+		dataType: int64
+		formatString: #,0
+		lineageTag: b627d3e6-6abf-59e1-afa1-bc234fd7ec1d
+		summarizeBy: sum
+		sourceColumn: order_days
+
+	column lifetime_net_pkr
+		dataType: decimal
+		formatString: #,0
+		lineageTag: 734ab4b9-6b4d-5f3d-8e74-1c83d8690a0f
+		summarizeBy: sum
+		sourceColumn: lifetime_net_pkr
+
+	column as_of_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 09a67795-d834-5215-a0d3-2c6ceba4154c
+		summarizeBy: none
+		sourceColumn: as_of_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column days_since_last_order
+		dataType: int64
+		formatString: #,0
+		lineageTag: 02a57196-a348-537e-8f54-b29d10125b7d
+		summarizeBy: none
+		sourceColumn: days_since_last_order
+
+	column is_at_risk
+		dataType: boolean
+		lineageTag: 1ca1b4ef-54aa-5005-ae4f-8c5d8575c64c
+		summarizeBy: none
+		sourceColumn: is_at_risk
+
+	column is_churned
+		dataType: boolean
+		lineageTag: f0903294-0006-52e3-9af0-e960accc3cae
+		summarizeBy: none
+		sourceColumn: is_churned
+
+	column monthly_value = IF(ISBLANK(mart_customer_activity[first_order_date]), 0, DIVIDE(mart_customer_activity[lifetime_net_pkr], MAX(1, DATEDIFF(mart_customer_activity[first_order_date], mart_customer_activity[last_order_date], MONTH) + 1)))
+		dataType: double
+		formatString: \R\s #,0
+		lineageTag: 0f400470-d903-58f2-9977-58c0428ead61
+		summarizeBy: sum
+
+	partition mart_customer_activity = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "\mart_customer_activity.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"customer_id", type text}, {"customer_name", type text}, {"customer_type", type text}, {"city", type text}, {"salesperson_id", type text}, {"first_order_date", type date}, {"last_order_date", type date}, {"order_days", Int64.Type}, {"lifetime_net_pkr", Currency.Type}, {"as_of_date", type date}, {"days_since_last_order", Int64.Type}, {"is_at_risk", type logical}, {"is_churned", type logical}}, "en-US")
+				in
+					Typed
+

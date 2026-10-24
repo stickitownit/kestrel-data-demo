@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "stock_v09",
+  "position": {
+    "x": 592,
+    "y": 224,
+    "z": 9000,
+    "height": 480,
+    "width": 668,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_stock_cover"
+                    }
+                  },
+                  "Property": "warehouse_id"
+                }
+              },
+              "queryRef": "mart_stock_cover.warehouse_id",
+              "nativeQueryRef": "warehouse_id",
+              "displayName": "Warehouse"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_stock_cover"
+                    }
+                  },
+                  "Property": "product_name"
+                }
+              },
+              "queryRef": "mart_stock_cover.product_name",
+              "nativeQueryRef": "product_name",
+              "displayName": "Product"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_stock_cover"
+                    }
+                  },
+                  "Property": "closing_qty"
+                }
+              },
+              "queryRef": "mart_stock_cover.closing_qty",
+              "nativeQueryRef": "closing_qty",
+              "displayName": "In stock"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_stock_cover"
+                    }
+                  },
+                  "Property": "avg_units_per_day_28d"
+                }
+              },
+              "queryRef": "mart_stock_cover.avg_units_per_day_28d",
+              "nativeQueryRef": "avg_units_per_day_28d",
+              "displayName": "Sold per day"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_stock_cover"
+                    }
+                  },
+                  "Property": "Days of Cover"
+                }
+              },
+              "queryRef": "mart_stock_cover.Days of Cover",
+              "nativeQueryRef": "Days of Cover",
+              "displayName": "Days of cover"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "mart_stock_cover"
+                  }
+                },
+                "Property": "Days of Cover"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "290.046757398042D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "mart_stock_cover.product_name"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Every item, lowest cover first'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

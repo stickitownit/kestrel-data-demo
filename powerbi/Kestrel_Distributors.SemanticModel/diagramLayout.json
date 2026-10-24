@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 334,
+            "y": 1
+          },
+          "nodeIndex": "dim_date",
+          "nodeLineageTag": "29bb043f-f392-50fb-9571-1c1913363ff3",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 25
+          },
+          "nodeIndex": "mart_customer_activity",
+          "nodeLineageTag": "cc32fac4-817c-548b-86e6-99d69836d261",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 63
+          },
+          "nodeIndex": "mart_data_quality",
+          "nodeLineageTag": "308ed02c-4762-5a07-a25c-ea1c3e8663e0",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1136,
+            "y": 25
+          },
+          "nodeIndex": "mart_product_city_trend",
+          "nodeLineageTag": "58dcdb78-2263-5752-aa86-989a58da06d9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420,
+            "y": 25
+          },
+          "nodeIndex": "mart_salesperson_attainment",
+          "nodeLineageTag": "c4d43012-8bf4-57e2-9869-fbfd12094a36",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1704,
+            "y": 25
+          },
+          "nodeIndex": "mart_stock_cover",
+          "nodeLineageTag": "a3f7318c-9b61-5b93-8ed6-6b358d50f058",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -25
+          },
+          "nodeIndex": "rpt_sales_overview",
+          "nodeLineageTag": "b77b09b9-c115-5593-ab2e-e9e86f370d56",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

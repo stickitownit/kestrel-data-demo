@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Kestrel_Distributors"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "97609ee8-0ee9-5e54-9c0f-b17d44d63e57"
+  }
+}

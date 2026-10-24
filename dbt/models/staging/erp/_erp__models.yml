@@ -1,0 +1,96 @@
+version: 2
+
+models:
+  - name: stg_erp__products
+    description: Product master, one row per SKU.
+    data_tests:
+      - row_count_equals: {expected: 34}
+    columns:
+      - name: sku
+        data_tests: [unique, not_null]
+      - name: category
+        data_tests: [not_null]
+      - name: unit_price_pkr
+        data_tests: [not_null]
+
+  - name: stg_erp__customers
+    description: >
+      One row per customer. City spellings mapped to a canonical city with the
+      city_aliases seed; customers with no salesperson are kept and flagged.
+    data_tests:
+      - row_count_equals: {expected: 366}
+    columns:
+      - name: customer_id
+        data_tests: [unique, not_null]
+      - name: city
+        description: Canonical city. Null here means a new spelling that needs a seed row.
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: [Karachi, Hyderabad, Lahore, Faisalabad, Multan, Islamabad, Rawalpindi, Peshawar]
+      - name: warehouse_id
+        data_tests:
+          - not_null
+          - accepted_values: {values: [KHI-WH, LHE-WH, ISB-WH]}
+      - name: customer_type
+        data_tests:
+          - accepted_values: {values: [Retailer, Wholesaler, Modern Trade]}
+      - name: salesperson_id
+        description: Null for unassigned customers (labelled "Unassigned" in dim_customer).
+        data_tests:
+          - relationships: {to: ref('stg_app__salespeople'), field: salesperson_id}
+      - name: created_on
+        data_tests: [not_null]
+
+  - name: stg_erp__invoices
+    description: One row per invoice or return document.
+    data_tests:
+      - row_count_equals: {expected: 15949}
+    columns:
+      - name: invoice_id
+        data_tests: [unique, not_null]
+      - name: invoice_date
+        data_tests: [not_null]
+      - name: doc_type
+        data_tests:
+          - accepted_values: {values: [INV, RET]}
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships: {to: ref('stg_erp__customers'), field: customer_id}
+      - name: salesperson_id
+        data_tests:
+          - relationships: {to: ref('stg_app__salespeople'), field: salesperson_id}
+
+  - name: stg_erp__invoice_lines
+    description: >
+      One row per invoice line after removing exact duplicates. SKUs trimmed and
+      upper-cased. Net amount = quantity x unit price x (1 - discount).
+    data_tests:
+      - row_count_equals: {expected: 101437}
+      - unique_combination: {columns: [invoice_id, line_no]}
+    columns:
+      - name: invoice_line_id
+        data_tests: [unique, not_null]
+      - name: invoice_id
+        data_tests:
+          - not_null
+          - relationships: {to: ref('stg_erp__invoices'), field: invoice_id}
+      - name: sku
+        description: >
+          54 lines use KD-SNK-099, a discontinued SKU missing from the product
+          master. Kept (revenue goes to "Unknown product" in the marts). The test
+          warns at exactly 54 and errors if the number changes.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_erp__products')
+              field: sku
+              config:
+                severity: error
+                warn_if: "!=0"
+                error_if: "!=54"
+      - name: quantity
+        data_tests: [not_null]
+      - name: net_amount_pkr
+        data_tests: [not_null]

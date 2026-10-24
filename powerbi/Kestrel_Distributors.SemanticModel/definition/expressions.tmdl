@@ -1,0 +1,5 @@
+expression DataFolder = "D:\Projects\kestrel-demo\powerbi\data" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 3e9a60af-f571-5681-8028-12bc5e0a064e
+
+	annotation PBI_ResultType = Text
+

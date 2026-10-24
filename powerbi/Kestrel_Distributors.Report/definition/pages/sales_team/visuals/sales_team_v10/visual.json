@@ -1,0 +1,202 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "sales_team_v10",
+  "position": {
+    "x": 592,
+    "y": 224,
+    "z": 10000,
+    "height": 480,
+    "width": 668,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_salesperson_attainment"
+                    }
+                  },
+                  "Property": "salesperson_name"
+                }
+              },
+              "queryRef": "mart_salesperson_attainment.salesperson_name",
+              "nativeQueryRef": "salesperson_name",
+              "displayName": "Salesperson"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_salesperson_attainment"
+                    }
+                  },
+                  "Property": "month_start"
+                }
+              },
+              "queryRef": "mart_salesperson_attainment.month_start",
+              "nativeQueryRef": "month_start",
+              "displayName": "Month"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_salesperson_attainment"
+                    }
+                  },
+                  "Property": "Target PKR"
+                }
+              },
+              "queryRef": "mart_salesperson_attainment.Target PKR",
+              "nativeQueryRef": "Target PKR",
+              "displayName": "Target"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_salesperson_attainment"
+                    }
+                  },
+                  "Property": "Actual PKR"
+                }
+              },
+              "queryRef": "mart_salesperson_attainment.Actual PKR",
+              "nativeQueryRef": "Actual PKR",
+              "displayName": "Actual"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_salesperson_attainment"
+                    }
+                  },
+                  "Property": "Attainment %"
+                }
+              },
+              "queryRef": "mart_salesperson_attainment.Attainment %",
+              "nativeQueryRef": "Attainment %",
+              "displayName": "Attainment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_salesperson_attainment"
+                    }
+                  },
+                  "Property": "Visit to Order %"
+                }
+              },
+              "queryRef": "mart_salesperson_attainment.Visit to Order %",
+              "nativeQueryRef": "Visit to Order %",
+              "displayName": "Visit → order"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "mart_salesperson_attainment"
+                  }
+                },
+                "Property": "Attainment %"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "129.2094086749125D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "mart_salesperson_attainment.Target PKR"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "143.16290239310098D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "mart_salesperson_attainment.Actual PKR"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Month by month'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

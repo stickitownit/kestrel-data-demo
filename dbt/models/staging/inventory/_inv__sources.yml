@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: inventory
+    description: >
+      Warehouse workbook weekly_stock_report.xlsx. The loader skips the 3 title
+      rows on each warehouse sheet and stacks the sheets, keeping _sheet_name.
+    schema: "{{ var('raw_schema', 'raw') }}"
+    tables:
+      - name: stock_report
+        identifier: inv_stock_report
+      - name: goods_receipts
+        identifier: inv_goods_receipts

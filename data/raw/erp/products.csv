@@ -1,0 +1,35 @@
+sku,product_name,category,brand,pack_size,unit_price_pkr,unit_cost_pkr,units_per_carton,is_active
+KD-OIL-001,Sunfield Cooking Oil 1L,Edible Oil & Ghee,Sunfield,1 L,560,505,12,Y
+KD-OIL-002,Sunfield Cooking Oil 5L,Edible Oil & Ghee,Sunfield,5 L,2720,2470,4,Y
+KD-OIL-003,Sunfield Banaspati Ghee 1kg,Edible Oil & Ghee,Sunfield,1 kg,540,490,12,Y
+KD-OIL-004,Sunfield Canola Oil 3L,Edible Oil & Ghee,Sunfield,3 L,1780,1610,6,Y
+KD-RIC-001,Rivergrain Basmati Rice 5kg,Rice & Flour,Rivergrain,5 kg,2350,2120,4,Y
+KD-RIC-002,Rivergrain Sella Rice 1kg,Rice & Flour,Rivergrain,1 kg,420,375,20,Y
+KD-RIC-003,Rivergrain Chakki Atta 10kg,Rice & Flour,Rivergrain,10 kg,1450,1340,2,Y
+KD-RIC-004,Rivergrain Besan 500g,Rice & Flour,Rivergrain,500 g,210,185,24,Y
+KD-TEA-001,Highland Black Tea 190g,Tea & Beverages,Highland,190 g,520,470,36,Y
+KD-TEA-002,Highland Black Tea 450g,Tea & Beverages,Highland,450 g,1180,1065,24,Y
+KD-TEA-003,Highland Green Tea 30 bags,Tea & Beverages,Highland,30 bags,330,290,48,Y
+KD-TEA-004,Rosewater Syrup 800ml,Tea & Beverages,Highland,800 ml,470,420,12,Y
+KD-JUI-001,Fruitara Mango Nectar 1L,Juices & Drinks,Fruitara,1 L,330,290,12,Y
+KD-JUI-002,Fruitara Apple Juice 1L,Juices & Drinks,Fruitara,1 L,340,300,12,Y
+KD-JUI-003,Fruitara Mango Nectar 200ml,Juices & Drinks,Fruitara,200 ml,70,60,27,Y
+KD-JUI-004,Fizzo Cola 1.5L,Juices & Drinks,Fizzo,1.5 L,190,165,6,Y
+KD-JUI-005,Fizzo Lemon 500ml,Juices & Drinks,Fizzo,500 ml,95,82,12,Y
+KD-SNK-001,Crunchy Bites Cream Biscuit,Biscuits & Snacks,Crunchy Bites,6 pack,180,155,24,Y
+KD-SNK-002,Crunchy Bites Salted Crackers,Biscuits & Snacks,Crunchy Bites,6 pack,160,138,24,Y
+KD-SNK-003,Crunchy Bites Chocolate Cookies,Biscuits & Snacks,Crunchy Bites,family,260,225,18,Y
+KD-SNK-004,Nimko Mix 200g,Biscuits & Snacks,Crunchy Bites,200 g,150,128,30,Y
+KD-SNK-005,Potato Chips Masala 60g,Biscuits & Snacks,Crunchy Bites,60 g,70,58,48,Y
+KD-HOM-001,Brightwash Detergent 1kg,Home Care,Brightwash,1 kg,590,525,12,Y
+KD-HOM-002,Brightwash Detergent 3kg,Home Care,Brightwash,3 kg,1650,1480,4,Y
+KD-HOM-003,Brightwash Dishwash Bar,Home Care,Brightwash,1 bar,95,80,48,Y
+KD-HOM-004,Brightwash Floor Cleaner 1L,Home Care,Brightwash,1 L,380,335,12,Y
+KD-PER-001,Petal Beauty Soap 115g,Personal Care,Petal,115 g,135,115,72,Y
+KD-PER-002,Petal Shampoo 360ml,Personal Care,Petal,360 ml,690,610,12,Y
+KD-PER-003,Petal Toothpaste 150g,Personal Care,Petal,150 g,310,270,36,Y
+KD-PER-004,Petal Hand Wash 250ml,Personal Care,Petal,250 ml,290,252,24,Y
+KD-DAI-001,Meadow UHT Milk 1L,Dairy,Meadow,1 L,290,262,12,Y
+KD-DAI-002,Meadow UHT Milk 250ml,Dairy,Meadow,250 ml,85,75,27,Y
+KD-DAI-003,Meadow Tea Whitener 1L,Dairy,Meadow,1 L,300,268,12,Y
+KD-DAI-004,Meadow Yogurt 400g,Dairy,Meadow,400 g,180,158,12,Y

@@ -1,0 +1,143 @@
+table mart_salesperson_attainment
+	lineageTag: c4d43012-8bf4-57e2-9869-fbfd12094a36
+
+	measure 'Attainment %' = DIVIDE(SUM(mart_salesperson_attainment[actual_pkr]), SUM(mart_salesperson_attainment[target_pkr]))
+		formatString: 0%
+		lineageTag: 9be8b84c-a984-503f-9335-295b0c97bd73
+
+	measure 'Target Line' = 1
+		formatString: 0%
+		lineageTag: 9b562f56-6fd1-5bb3-a176-b133a98fdd3b
+
+	measure 'Visit to Order %' = DIVIDE(SUM(mart_salesperson_attainment[order_visits]), SUM(mart_salesperson_attainment[visits]))
+		formatString: 0%
+		lineageTag: b2c92d2a-f728-5925-b7f6-0c8685fbfa18
+
+	measure 'Reps Below 85% x3' = VAR latest = CALCULATE(MAX(mart_salesperson_attainment[month_start]), REMOVEFILTERS(mart_salesperson_attainment), mart_salesperson_attainment[is_month_to_date] = FALSE()) RETURN CALCULATE(DISTINCTCOUNT(mart_salesperson_attainment[salesperson_id]), REMOVEFILTERS(mart_salesperson_attainment), mart_salesperson_attainment[is_below_85_three_months_running] = TRUE(), mart_salesperson_attainment[month_start] = latest)
+		formatString: #,0
+		lineageTag: 52ca76bd-551a-5fe4-9e13-49b6102325bb
+
+	measure 'Target PKR' = SUM(mart_salesperson_attainment[target_pkr])
+		formatString: \R\s\ #,0
+		lineageTag: 8dcca579-ead1-519c-87b5-71aecc376d2c
+
+	measure 'Target Shortfall 3M' = VAR latest = CALCULATE(MAX(mart_salesperson_attainment[month_start]), REMOVEFILTERS(mart_salesperson_attainment), mart_salesperson_attainment[is_month_to_date] = FALSE()) VAR reps = CALCULATETABLE(VALUES(mart_salesperson_attainment[salesperson_id]), REMOVEFILTERS(mart_salesperson_attainment), mart_salesperson_attainment[is_below_85_three_months_running] = TRUE(), mart_salesperson_attainment[month_start] = latest) RETURN CALCULATE(SUM(mart_salesperson_attainment[target_pkr]) - SUM(mart_salesperson_attainment[actual_pkr]), REMOVEFILTERS(mart_salesperson_attainment), mart_salesperson_attainment[salesperson_id] IN reps, mart_salesperson_attainment[is_last_3_months] = TRUE())
+		formatString: #,0
+		lineageTag: 961917ba-aeaf-5f27-ac29-f4729ab7e4ed
+
+	measure 'Shortfall Text' = VAR v = [Target Shortfall 3M] RETURN IF(ISBLANK(v), BLANK(), IF(ABS(v) >= 10000000, "Rs " & FORMAT(v / 10000000, "0.0") & " Cr", "Rs " & FORMAT(v / 100000, "0.0") & " lakh"))
+		lineageTag: b2a5eae1-5268-5e91-8746-ae29190df3a0
+
+	measure 'Rep Detail' = VAR latest = CALCULATE(MAX(mart_salesperson_attainment[month_start]), REMOVEFILTERS(mart_salesperson_attainment), mart_salesperson_attainment[is_month_to_date] = FALSE()) VAR reps = CALCULATETABLE(VALUES(mart_salesperson_attainment[salesperson_id]), REMOVEFILTERS(mart_salesperson_attainment), mart_salesperson_attainment[is_below_85_three_months_running] = TRUE(), mart_salesperson_attainment[month_start] = latest) VAR r = CALCULATETABLE(mart_salesperson_attainment, REMOVEFILTERS(mart_salesperson_attainment), mart_salesperson_attainment[salesperson_id] IN reps, mart_salesperson_attainment[is_last_3_months] = TRUE()) RETURN CONCATENATEX(SUMMARIZE(r, mart_salesperson_attainment[salesperson_name]), mart_salesperson_attainment[salesperson_name], ", ") & " · " & FORMAT(MINX(r, mart_salesperson_attainment[attainment]), "0%") & "–" & FORMAT(MAXX(r, mart_salesperson_attainment[attainment]), "0%") & " of target"
+		lineageTag: ce33b297-329c-57f9-bc9a-e31954232ce3
+
+	measure 'Actual PKR' = SUM(mart_salesperson_attainment[actual_pkr])
+		formatString: \R\s\ #,0
+		lineageTag: 4a9722cb-eb08-5692-b746-09856a76a5ca
+
+	column attainment_id
+		dataType: string
+		lineageTag: a7e1d84f-5138-59e6-a142-574372f6bd41
+		summarizeBy: none
+		sourceColumn: attainment_id
+
+	column salesperson_id
+		dataType: string
+		lineageTag: 90a1867c-c6e2-5921-adfb-054e71d87736
+		summarizeBy: none
+		sourceColumn: salesperson_id
+
+	column salesperson_name
+		dataType: string
+		lineageTag: b523222e-b6ec-5338-a304-d7220c0ede37
+		summarizeBy: none
+		sourceColumn: salesperson_name
+
+	column month_start
+		dataType: dateTime
+		formatString: mmm yyyy
+		lineageTag: eaee1225-a2a1-5f49-b767-26ffdd533532
+		summarizeBy: none
+		sourceColumn: month_start
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column is_month_to_date
+		dataType: boolean
+		lineageTag: 589cb8f1-1b01-522f-b22a-79f8f731c21d
+		summarizeBy: none
+		sourceColumn: is_month_to_date
+
+	column target_pkr
+		dataType: decimal
+		formatString: #,0
+		lineageTag: 325b3d39-9150-5391-9ccb-b3e8261aa74d
+		summarizeBy: sum
+		sourceColumn: target_pkr
+
+	column actual_pkr
+		dataType: decimal
+		formatString: #,0
+		lineageTag: ceb4b659-48d4-53d3-8423-b471b90e2a62
+		summarizeBy: sum
+		sourceColumn: actual_pkr
+
+	column attainment
+		dataType: double
+		lineageTag: 8eafb61c-d4dd-5f59-8e85-e856d079bf0d
+		summarizeBy: sum
+		sourceColumn: attainment
+
+	column attainment_to_date
+		dataType: double
+		lineageTag: eac4f1f8-8433-5e96-b2ab-9c7705fd6553
+		summarizeBy: sum
+		sourceColumn: attainment_to_date
+
+	column visits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2a5f1dad-80e7-5955-bded-bc00615aa766
+		summarizeBy: sum
+		sourceColumn: visits
+
+	column order_visits
+		dataType: int64
+		formatString: #,0
+		lineageTag: ed5c41f8-a6c8-520d-87a5-76446736e2f6
+		summarizeBy: sum
+		sourceColumn: order_visits
+
+	column visit_to_order_rate
+		dataType: double
+		lineageTag: 3a8afc3c-d60f-52a4-9770-bf9b8ef460e9
+		summarizeBy: sum
+		sourceColumn: visit_to_order_rate
+
+	column is_below_85
+		dataType: boolean
+		lineageTag: 5a9803eb-847f-5dc7-b5a8-b37d9d49f42c
+		summarizeBy: none
+		sourceColumn: is_below_85
+
+	column is_below_85_three_months_running
+		dataType: boolean
+		lineageTag: d9c63a3c-f549-5315-bb59-f4ccec1253ac
+		summarizeBy: none
+		sourceColumn: is_below_85_three_months_running
+
+	column is_last_3_months = VAR latest = MAXX(FILTER(ALL(mart_salesperson_attainment), NOT mart_salesperson_attainment[is_month_to_date]), mart_salesperson_attainment[month_start]) RETURN mart_salesperson_attainment[is_month_to_date] = FALSE() && mart_salesperson_attainment[month_start] > EDATE(latest, -3)
+		dataType: boolean
+		lineageTag: 19d3740a-ecc5-5914-96fe-d46fa8a35ecf
+		summarizeBy: none
+
+	partition mart_salesperson_attainment = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "\mart_salesperson_attainment.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"attainment_id", type text}, {"salesperson_id", type text}, {"salesperson_name", type text}, {"month_start", type date}, {"is_month_to_date", type logical}, {"target_pkr", Currency.Type}, {"actual_pkr", Currency.Type}, {"attainment", type number}, {"attainment_to_date", type number}, {"visits", Int64.Type}, {"order_visits", Int64.Type}, {"visit_to_order_rate", type number}, {"is_below_85", type logical}, {"is_below_85_three_months_running", type logical}}, "en-US")
+				in
+					Typed
+

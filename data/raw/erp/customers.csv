@@ -1,0 +1,367 @@
+customer_id,customer_name,customer_type,city,area,salesperson_id,credit_days,created_on
+C0001,Green Valley Hypermart,Modern Trade,Lahore,Gulberg,SP-07,45,10/05/2024
+C0002,Haji Enterprises,Wholesaler,Lahore,Johar Town,SP-08,30,05/05/2023
+C0003,Usman Kiryana Store,Retailer,Rawalpindi,Saddar,SP-16,7,27/12/2021
+C0004,Sunrise Mart,Retailer,Faisalabad,D-Ground,SP-09,7,19/12/2024
+C0005,Star Super Store,Retailer,Islamabad,F-7,SP-14,7,21/10/2021
+C0006,Madina General Store,Retailer,LHR,Johar Town,SP-06,7,10/08/2022
+C0007,Usman Mart,Retailer,Karachi,Korangi,SP-02,7,11/06/2023
+C0008,Madina Mega Mart,Modern Trade,Faisalabad,D-Ground,SP-09,45,31/10/2023
+C0009,Moon Mart,Retailer,Karachi,North Nazimabad,SP-01,7,01/04/2024
+C0010,Usman Super Store,Retailer,ISB,Blue Area,SP-13,7,19/12/2024
+C0011,Al-Habib Traders,Wholesaler,Faisalabad,D-Ground,SP-10,30,20/12/2024
+C0012,Moon Super Store,Retailer,Islamabad,I-8,SP-13,7,16/05/2023
+C0013,Al-Habib Superstore,Modern Trade,Lahore,Johar Town,SP-07,45,08/10/2023
+C0014,Ali Enterprises,Wholesaler,Peshawar,University Town,SP-17,30,06/09/2023
+C0015,Rehman Super Store,Retailer,Rawalpindi,Saddar,SP-16,7,15/04/2023
+C0016,Sadiq Karyana,Retailer,Islamabad,Blue Area,SP-13,7,15/05/2024
+C0017,Al-Habib Hypermart,Modern Trade,Karachi,Malir,SP-03,45,27/09/2021
+C0018,Royal Trading Co.,Wholesaler,Lahore,Gulberg,SP-06,30,27/06/2023
+C0019,Karim Hypermart,Modern Trade,Karachi,Korangi,SP-02,45,04/06/2022
+C0020,Ghani Mart,Retailer,Karachi,Defence,SP-03,7,01/02/2024
+C0021,Sadiq Trading Co.,Wholesaler,Multan,Cantt,SP-12,30,05/06/2023
+C0022,Moon General Store,Retailer,Islamabad,F-7,SP-13,7,25/07/2023
+C0023,Sunrise Kiryana Store,Retailer,Peshawar,Hayatabad,SP-18,7,27/12/2022
+C0024,Rehman Kiryana Store,Retailer,Hyderabad,Latifabad,SP-04,7,24/03/2025
+C0025,Karim Karyana,Retailer,Lahore,Anarkali,SP-07,7,20/01/2025
+C0026,Green Valley Karyana,Retailer,Lahore,Johar Town,SP-08,7,19/05/2025
+C0027,Sadiq Karyana,Retailer,Karachi,Gulshan,SP-01,7,19/10/2024
+C0028,Sunrise Enterprises,Wholesaler,Karachi,Malir,SP-02,30,21/12/2024
+C0029,Sunrise General Store,Retailer,Lahore,Iqbal Town,SP-08,7,22/01/2025
+C0030,Green Valley Kiryana Store,Retailer,Karachi,Korangi,SP-01,7,16/02/2023
+C0031,Haji Kiryana Store,Retailer,Multan,Cantt,SP-12,7,06/06/2023
+C0032,Royal Super Store,Retailer,Lahore,Model Town,SP-08,7,26/05/2025
+C0033,Green Valley Mega Mart,Modern Trade,Rawalpindi,Satellite Town,SP-16,45,29/07/2023
+C0034,Sunrise Enterprises,Wholesaler,Multan,Cantt,SP-11,30,05/10/2024
+C0035,Usman General Store,Retailer,Hyderabad,Qasimabad,SP-05,7,31/03/2024
+C0036,Karim Cash & Carry,Modern Trade,Rawalpindi,Saddar,SP-15,45,24/05/2024
+C0037,Hamza Trading Co.,Wholesaler,Islamabad,I-8,SP-14,30,09/07/2021
+C0038,Hamza Super Store,Retailer,Lahore,Anarkali,SP-08,7,27/12/2022
+C0039,Green Valley & Sons,Wholesaler,Hyderabad,Latifabad,SP-05,30,18/06/2022
+C0040,Al-Habib Kiryana Store,Retailer,Multan,Cantt,SP-11,7,22/02/2022
+C0041,Haji Mega Mart,Modern Trade,Karachi,Korangi,SP-03,45,17/12/2024
+C0042,Al-Habib Mart,Retailer,Karachi,North Nazimabad,SP-01,7,31/12/2022
+C0043,Star Super Store,Retailer,karachi ,Clifton,SP-02,7,10/11/2022
+C0044,Usman Kiryana Store,Retailer,Islamabad,Blue Area,SP-13,7,21/02/2024
+C0045,City Hypermart,Modern Trade,Multan,Cantt,SP-12,45,16/06/2022
+C0046,Bismillah Kiryana Store,Retailer,Multan,Bosan Road,SP-11,7,09/01/2024
+C0047,Faisal Super Store,Retailer,Islamabad,Blue Area,SP-14,7,07/10/2022
+C0048,Rehman Super Store,Retailer,Lahore,Anarkali,SP-06,7,01/07/2022
+C0049,Crescent & Sons,Wholesaler,Faisalabad,Peoples Colony,SP-10,30,03/02/2022
+C0050,Madina General Store,Retailer,Karachi,Malir,SP-03,7,21/02/2024
+C0051,Pak Cash & Carry,Modern Trade,Karachi,Defence,SP-01,45,19/06/2024
+C0052,Green Valley Karyana,Retailer,Multan,Cantt,SP-11,7,28/11/2024
+C0053,Ghani Super Store,Retailer,Lahore,Johar Town,SP-08,7,05/03/2025
+C0054,Royal General Store,Retailer,Faisalabad,Peoples Colony,SP-09,7,20/09/2024
+C0055,Haji Karyana,Retailer,ISB,Blue Area,SP-14,7,08/05/2024
+C0056,Ali Kiryana Store,Retailer,Faisalabad,Peoples Colony,,7,27/05/2025
+C0057,Bismillah Enterprises,Wholesaler,Faisalabad,Peoples Colony,SP-10,30,03/02/2023
+C0058,New Mart,Retailer,Fsd,D-Ground,SP-09,7,24/01/2023
+C0059,Shaheen Enterprises,Wholesaler,Hyderabad,Latifabad,SP-05,30,19/01/2025
+C0060,Pak Mart,Retailer,Krachi,Saddar,SP-01,7,15/11/2021
+C0061,Crescent Enterprises,Wholesaler,Lahore,Anarkali,SP-07,30,06/09/2024
+C0062,Madina Hypermart,Modern Trade,Karachi,Clifton,SP-03,45,26/04/2024
+C0063,Ghani Wholesale,Wholesaler,Lahore,Gulberg,SP-06,30,19/11/2024
+C0064,Usman Mart,Retailer,Rawalpindi,Saddar,SP-15,7,25/03/2024
+C0065,Rehman & Sons,Wholesaler,Karachi,Defence,,30,27/08/2024
+C0066,Rehman Mart,Retailer,Karachi,Defence,SP-01,7,06/05/2025
+C0067,Shaheen Kiryana Store,Retailer,Hyderabad,Saddar,SP-05,7,03/01/2022
+C0068,City Mart,Retailer,Hyderabad,Latifabad,SP-04,7,25/11/2021
+C0069,Al-Habib Mart,Retailer,Multan,Bosan Road,SP-12,7,02/09/2024
+C0070,Iqbal Wholesale,Wholesaler,Faisalabad,Peoples Colony,SP-09,30,11/03/2023
+C0071,Ali Kiryana Store,Retailer,Islamabad,I-8,SP-14,7,10/04/2023
+C0072,Karim Enterprises,Wholesaler,Multan,Gulgasht,SP-11,30,01/07/2022
+C0073,New Super Store,Retailer,Lahore,Gulberg,SP-07,7,13/07/2022
+C0074,Usman Wholesale,Wholesaler,Islamabad ,F-7,SP-13,30,17/06/2021
+C0075,Zam Zam General Store,Retailer,Karachi,Korangi,SP-01,7,16/08/2021
+C0076,Pak Kiryana Store,Retailer,Karachi,Korangi,SP-02,7,14/05/2025
+C0077,Usman Traders,Wholesaler,Karachi,Saddar,SP-03,30,11/09/2023
+C0078,Moon Hypermart,Modern Trade,Multan,Cantt,SP-11,45,11/10/2023
+C0079,Rehman General Store,Retailer,lahore,Shadman,SP-07,7,09/10/2022
+C0080,New Kiryana Store,Retailer,Karachi,Clifton,SP-03,7,30/10/2023
+C0081,Sunrise Super Store,Retailer,Lahore,Johar Town,SP-06,7,21/12/2023
+C0082,Haji Mart,Retailer,Karachi,Korangi,SP-02,7,19/07/2021
+C0083,City Superstore,Modern Trade,Multan,Gulgasht,SP-12,45,18/09/2021
+C0084,Iqbal Wholesale,Wholesaler,Lahore,Gulberg,SP-06,30,17/12/2021
+C0085,Bismillah Super Store,Retailer,Lahore,Model Town,SP-07,7,15/01/2024
+C0086,Iqbal Super Store,Retailer,Hyderabad,Qasimabad,SP-04,7,12/07/2023
+C0087,Haji General Store,Retailer,Faisalabad,Peoples Colony,SP-10,7,26/10/2022
+C0088,Al-Noor Fresh Mart,Modern Trade,Lahore,DHA,SP-07,45,22/11/2023
+C0089,Usman Kiryana Store,Retailer,Karachi,Gulshan,SP-03,7,16/10/2022
+C0090,Pak & Sons,Wholesaler,Karachi,Gulshan,SP-01,30,23/06/2022
+C0091,Iqbal Kiryana Store,Retailer,Peshawar,Hayatabad,SP-18,7,18/08/2023
+C0092,Royal Kiryana Store,Retailer,Rawalpindi,Saddar,SP-15,7,30/12/2024
+C0093,Royal Mart,Retailer,Multan,Cantt,SP-12,7,14/12/2021
+C0094,Al-Noor Mega Mart,Modern Trade,Hyderabad,Latifabad,SP-04,45,16/03/2022
+C0095,Rehman Kiryana Store,Retailer,Peshawar,University Town,SP-18,7,07/09/2023
+C0096,Iqbal Super Store,Retailer,Islamabad,E-11,SP-13,7,04/06/2022
+C0097,Hamza Super Store,Retailer,Multan,Cantt,SP-12,7,10/06/2021
+C0098,Faisal Super Store,Retailer,Lahore,Gulberg,SP-08,7,25/11/2023
+C0099,Karim Cash & Carry,Modern Trade,Hyderabad,Qasimabad,SP-05,45,20/11/2022
+C0100,Ghani Super Store,Retailer,Krachi,Malir,SP-02,7,30/10/2023
+C0101,Haji Mart,Retailer,Rawalpindi,Chaklala,SP-16,7,13/02/2023
+C0102,Shaheen Kiryana Store,Retailer,lahore,Model Town,SP-06,7,29/01/2023
+C0103,Hamza General Store,Retailer,Karachi,Korangi,SP-02,7,06/02/2023
+C0104,Haji Mart,Retailer,Hyderabad,Latifabad,SP-04,7,26/08/2021
+C0105,Haji Karyana,Retailer,Fsd,D-Ground,SP-10,7,22/01/2024
+C0106,Al-Noor Mart,Retailer,Karachi,North Nazimabad,,7,25/11/2023
+C0107,New Mart,Retailer,Rawalpindi,Satellite Town,SP-16,7,30/01/2024
+C0108,Al-Noor Mart,Retailer,Islamabad,F-7,SP-13,7,05/10/2024
+C0109,Faisal General Store,Retailer,Multan,Bosan Road,SP-12,7,28/04/2025
+C0110,Rehman Kiryana Store,Retailer,Lahore,Anarkali,SP-08,7,29/07/2021
+C0111,Bismillah Mart,Retailer,Faisalabad,D-Ground,SP-10,7,07/07/2023
+C0112,Star Mart,Retailer,Faisalabad,D-Ground,SP-09,7,21/05/2022
+C0113,Crescent General Store,Retailer,Fsd,Madina Town,SP-10,7,30/06/2023
+C0114,Sunrise Mart,Retailer,Karachi,Korangi,SP-01,7,08/08/2024
+C0115,New Karyana,Retailer,Lahore,Model Town,SP-07,7,10/03/2025
+C0116,Hamza Karyana,Retailer,Karachi,Gulshan,SP-03,7,14/07/2023
+C0117,Al-Habib Super Store,Retailer,Lahore,Johar Town,SP-06,7,20/05/2025
+C0118,Sunrise Karyana,Retailer,Hyderabad,Qasimabad,SP-04,7,25/06/2023
+C0119,Madina Super Store,Retailer,Karachi,Korangi,SP-03,7,15/09/2022
+C0120,Star General Store,Retailer,Karachi,Saddar,SP-01,7,04/06/2023
+C0121,Pak Kiryana Store,Retailer,Faisalabad,Peoples Colony,SP-10,7,14/11/2024
+C0122,Al-Habib Wholesale,Wholesaler,Karachi,Clifton,SP-03,30,25/03/2024
+C0123,Rehman Kiryana Store,Retailer,Rawalpindi,Bahria Town,SP-16,7,23/04/2022
+C0124,Ghani Kiryana Store,Retailer,Faisalabad,Madina Town,SP-09,7,15/10/2021
+C0125,Pak Karyana,Retailer,Lahore,Iqbal Town,SP-08,7,28/12/2023
+C0126,Green Valley Trading Co.,Wholesaler,Faisalabad,D-Ground,SP-09,30,01/08/2021
+C0127,Ghani General Store,Retailer,Karachi,Gulshan,,7,18/08/2021
+C0128,Al-Habib General Store,Retailer,Peshawar,University Town,SP-17,7,11/03/2024
+C0129,Haji Mart,Retailer,Lahore,Johar Town,SP-06,7,17/02/2022
+C0130,Al-Habib Karyana,Retailer,Islamabad,Blue Area,SP-13,7,05/01/2022
+C0131,New Super Store,Retailer,Karachi,Clifton,SP-03,7,28/04/2023
+C0132,Al-Noor Traders,Wholesaler,LHR,DHA,SP-06,30,01/10/2024
+C0133,Iqbal Cash & Carry,Modern Trade,Lahore,Gulberg,SP-07,45,27/12/2024
+C0134,Madina Cash & Carry,Modern Trade,Peshawar,University Town,SP-17,45,27/12/2021
+C0135,Green Valley Karyana,Retailer,Faisalabad,D-Ground,SP-10,7,10/06/2022
+C0136,Haji Super Store,Retailer,Lahore,Iqbal Town,SP-07,7,23/03/2024
+C0137,Moon & Sons,Wholesaler,Hyderabad,Saddar,SP-05,30,20/12/2024
+C0138,Pak General Store,Retailer,Lahore,Shadman,SP-06,7,11/05/2022
+C0139,Sadiq Trading Co.,Wholesaler,Lahore,Iqbal Town,SP-07,30,28/12/2022
+C0140,Shaheen Super Store,Retailer,Lahore,Johar Town,SP-08,7,17/08/2021
+C0141,Al-Noor Karyana,Retailer,Karachi,Clifton,SP-01,7,29/06/2022
+C0142,Al-Noor Karyana,Retailer,Islamabad,G-9,SP-13,7,05/01/2025
+C0143,Sunrise Wholesale,Wholesaler,Rawalpindi,Saddar,,30,06/12/2022
+C0144,Sadiq Mart,Retailer,Krachi,Defence,SP-01,7,11/09/2024
+C0145,Iqbal Mart,Retailer,Faisalabad,Peoples Colony,SP-10,7,02/09/2024
+C0146,Shaheen Kiryana Store,Retailer,Krachi,Defence,SP-03,7,06/06/2024
+C0147,Faisal Kiryana Store,Retailer,Multan,Gulgasht,SP-12,7,08/02/2023
+C0148,Madina Kiryana Store,Retailer,Hyderabad,Saddar,SP-04,7,24/11/2021
+C0149,Zam Zam & Sons,Wholesaler,Multan,Bosan Road,SP-12,30,09/07/2022
+C0150,Moon General Store,Retailer,Multan,Gulgasht,SP-11,7,01/06/2024
+C0151,Al-Noor & Sons,Wholesaler,Islamabad,G-9,SP-14,30,09/04/2025
+C0152,Hamza & Sons,Wholesaler,Karachi,Clifton,SP-03,30,20/08/2021
+C0153,Ghani Kiryana Store,Retailer,rawalpindi,Satellite Town,SP-16,7,05/02/2024
+C0154,Madina Kiryana Store,Retailer,Karachi,North Nazimabad,SP-02,7,03/05/2023
+C0155,Zam Zam Karyana,Retailer,Karachi,Defence,SP-03,7,01/11/2023
+C0156,Rehman Karyana,Retailer,Faisalabad,Madina Town,SP-09,7,05/04/2023
+C0157,Green Valley Mart,Retailer,Lahore,Anarkali,SP-07,7,21/12/2023
+C0158,Sunrise Mega Mart,Modern Trade,Islamabad,I-8,SP-13,45,29/11/2024
+C0159,Madina Hypermart,Modern Trade,Islamabad,I-8,SP-14,45,22/01/2022
+C0160,Faisal Trading Co.,Wholesaler,Hyderabad,Qasimabad,SP-04,30,31/07/2021
+C0161,Al-Noor General Store,Retailer,Peshawar,Saddar,SP-18,7,22/07/2021
+C0162,Iqbal Karyana,Retailer,Hyderabad,Saddar,SP-04,7,31/07/2024
+C0163,Zam Zam & Sons,Wholesaler,Lahore,Iqbal Town,SP-07,30,21/11/2023
+C0164,New General Store,Retailer,Karachi,North Nazimabad,SP-03,7,09/12/2024
+C0165,Star Kiryana Store,Retailer,Peshawar,Hayatabad,SP-18,7,25/09/2021
+C0166,Al-Noor Super Store,Retailer,Karachi,Saddar,SP-02,7,21/12/2022
+C0167,New Mart,Retailer,Karachi,Malir,SP-03,7,16/04/2023
+C0168,Haji Kiryana Store,Retailer,Lahore,Model Town,,7,12/04/2023
+C0169,Iqbal General Store,Retailer,Peshawar,Saddar,SP-18,7,04/11/2024
+C0170,Zam Zam Mart,Retailer,Rawalpindi,Bahria Town,SP-15,7,15/02/2022
+C0171,Sunrise Traders,Wholesaler,Islamabad,I-8,SP-14,30,15/01/2022
+C0172,New Cash & Carry,Modern Trade,Rawalpindi,Chaklala,SP-15,45,20/10/2024
+C0173,Zam Zam Super Store,Retailer,Rawalpindi,Bahria Town,SP-16,7,03/03/2023
+C0174,Pak Wholesale,Wholesaler,Lahore,Johar Town,SP-06,30,20/03/2025
+C0175,Iqbal Fresh Mart,Modern Trade,Hyderabad,Saddar,SP-05,45,09/10/2022
+C0176,Haji Kiryana Store,Retailer,Islamabad,Blue Area,SP-13,7,29/11/2022
+C0177,Star Karyana,Retailer,Multan,Gulgasht,SP-12,7,01/02/2022
+C0178,Ghani Karyana,Retailer,Lahore,Johar Town,SP-07,7,25/07/2024
+C0179,Iqbal Mart,Retailer,Karachi,Korangi,SP-03,7,05/04/2024
+C0180,Green Valley Enterprises,Wholesaler,Islamabad,E-11,SP-13,30,05/11/2022
+C0181,Royal Super Store,Retailer,Hyderabad,Saddar,SP-05,7,15/04/2024
+C0182,Hamza Mart,Retailer,Peshawar,Hayatabad,SP-17,7,15/04/2024
+C0183,Haji Kiryana Store,Retailer,Karachi,Malir,SP-01,7,17/03/2022
+C0184,Rehman Karyana,Retailer,Karachi,Korangi,SP-02,7,24/11/2024
+C0185,Sunrise Mega Mart,Modern Trade,Rawalpindi,Bahria Town,SP-16,45,02/06/2023
+C0186,Rehman Kiryana Store,Retailer,KHI,Malir,SP-01,7,02/11/2023
+C0187,Ghani Kiryana Store,Retailer,Karachi,Defence,SP-02,7,02/10/2023
+C0188,Hamza Kiryana Store,Retailer,Faisalabad,D-Ground,SP-09,7,30/06/2022
+C0189,Al-Noor Kiryana Store,Retailer,Rawalpindi,Chaklala,SP-16,7,08/10/2022
+C0190,Crescent General Store,Retailer,Karachi,North Nazimabad,SP-02,7,02/01/2023
+C0191,Iqbal Mart,Retailer,Hyderabad,Latifabad,,7,21/04/2023
+C0192,City Super Store,Retailer,Islamabad,G-9,SP-13,7,15/01/2024
+C0193,Shaheen General Store,Retailer,Peshawar,University Town,SP-18,7,13/06/2021
+C0194,Ali & Sons,Wholesaler,Lahore,Johar Town,SP-08,30,05/01/2022
+C0195,Faisal Mart,Retailer,Krachi,North Nazimabad,SP-01,7,02/04/2024
+C0196,Usman General Store,Retailer,Karachi,North Nazimabad,SP-02,7,29/10/2021
+C0197,Shaheen Super Store,Retailer,Karachi,Malir,SP-03,7,21/09/2024
+C0198,New Trading Co.,Wholesaler,Karachi,Korangi,SP-01,30,14/03/2024
+C0199,Zam Zam Super Store,Retailer,Multan,Bosan Road,SP-12,7,17/06/2022
+C0200,Royal Kiryana Store,Retailer,Karachi,Malir,,7,12/06/2022
+C0201,City Super Store,Retailer,Lahore,Model Town,SP-06,7,25/10/2024
+C0202,Ali Kiryana Store,Retailer,Multan,Bosan Road,SP-11,7,09/07/2022
+C0203,Al-Habib Trading Co.,Wholesaler,Faisalabad,Madina Town,SP-10,30,02/02/2024
+C0204,Al-Habib Super Store,Retailer,karachi ,Saddar,SP-01,7,24/09/2023
+C0205,Moon Enterprises,Wholesaler,Islamabad,G-9,SP-14,30,13/08/2022
+C0206,Al-Habib Enterprises,Wholesaler,Multan,Gulgasht,SP-11,30,11/10/2023
+C0207,Pak General Store,Retailer,Islamabad,G-9,SP-14,7,01/02/2022
+C0208,Shaheen Superstore,Modern Trade,KHI,North Nazimabad,SP-02,45,18/01/2025
+C0209,Moon Kiryana Store,Retailer,Karachi,Malir,SP-03,7,20/06/2022
+C0210,Hamza Traders,Wholesaler,Rawalpindi,Chaklala,SP-15,30,01/10/2022
+C0211,Iqbal Karyana,Retailer,Lahore,Iqbal Town,SP-07,7,06/03/2022
+C0212,Al-Noor Kiryana Store,Retailer,Hyderabad,Qasimabad,SP-04,7,15/08/2024
+C0213,Karim Mart,Retailer,Lahore,DHA,SP-06,7,24/05/2022
+C0214,Madina Mart,Retailer,Multan,Gulgasht,SP-11,7,04/06/2024
+C0215,City General Store,Retailer,Peshawar,Hayatabad,SP-18,7,29/11/2021
+C0216,Ghani Fresh Mart,Modern Trade,Hyderabad,Qasimabad,SP-04,45,23/04/2024
+C0217,Pak Mart,Retailer,Rawalpindi,Satellite Town,SP-16,7,14/04/2024
+C0218,City Kiryana Store,Retailer,Karachi,Clifton,SP-03,7,14/09/2022
+C0219,Iqbal Super Store,Retailer,Faisalabad,D-Ground,SP-10,7,20/07/2021
+C0220,Karim Karyana,Retailer,Faisalabad,Peoples Colony,SP-09,7,28/03/2023
+C0221,Sunrise Super Store,Retailer,Karachi,Malir,SP-03,7,27/01/2023
+C0222,Faisal Fresh Mart,Modern Trade,Karachi,Gulshan,SP-01,45,18/12/2022
+C0223,Crescent Mart,Retailer,Lahore,Gulberg,SP-07,7,27/02/2025
+C0224,Karim Mart,Retailer,Peshawar,Saddar,SP-17,7,16/02/2024
+C0225,Sunrise General Store,Retailer,Faisalabad,D-Ground,SP-10,7,24/08/2023
+C0226,Green Valley Super Store,Retailer,Peshawar,University Town,SP-17,7,29/08/2022
+C0227,Royal Kiryana Store,Retailer,Islamabad,F-7,SP-14,7,06/08/2022
+C0228,Al-Habib & Sons,Wholesaler,Lahore,Model Town,SP-06,30,23/11/2021
+C0229,Hamza Super Store,Retailer,ISB,I-8,SP-14,7,15/09/2024
+C0230,Zam Zam Fresh Mart,Modern Trade,Karachi,Clifton,SP-03,45,26/08/2021
+C0231,Ali Super Store,Retailer,Karachi,Clifton,SP-01,7,20/12/2021
+C0232,Rehman Super Store,Retailer,Islamabad,F-7,SP-13,7,24/03/2023
+C0233,Haji Trading Co.,Wholesaler,Islamabad,F-7,SP-14,30,22/02/2022
+C0234,Sadiq Superstore,Modern Trade,Karachi,Malir,SP-01,45,27/01/2024
+C0235,Rehman Traders,Wholesaler,Lahore,Shadman,SP-07,30,29/07/2021
+C0236,Madina Superstore,Modern Trade,Faisalabad,D-Ground,SP-09,45,12/09/2021
+C0237,Madina Trading Co.,Wholesaler,Rawalpindi,Satellite Town,SP-16,30,02/05/2025
+C0238,Usman Wholesale,Wholesaler,Fsd,Madina Town,SP-09,30,02/06/2022
+C0239,Star Kiryana Store,Retailer,Lahore,Anarkali,SP-08,7,29/12/2024
+C0240,Moon Enterprises,Wholesaler,LHR,Shadman,SP-06,30,26/06/2023
+C0241,Sadiq Kiryana Store,Retailer,Lahore,Iqbal Town,SP-07,7,23/12/2022
+C0242,Crescent General Store,Retailer,Multan,Cantt,SP-11,7,28/10/2022
+C0243,Ghani General Store,Retailer,Pindi,Saddar,SP-16,7,24/07/2023
+C0244,Ghani Mega Mart,Modern Trade,Lahore,DHA,SP-07,45,22/01/2023
+C0245,Karim Fresh Mart,Modern Trade,Karachi,Malir,SP-03,45,09/10/2022
+C0246,Star Kiryana Store,Retailer,Karachi,Saddar,SP-01,7,18/02/2022
+C0247,Sunrise Trading Co.,Wholesaler,Islamabad,F-7,,30,11/12/2023
+C0248,Star Traders,Wholesaler,Islamabad,I-8,SP-13,30,21/05/2025
+C0249,Pak Super Store,Retailer,Karachi,Malir,SP-01,7,16/11/2024
+C0250,Sadiq General Store,Retailer,Karachi,Korangi,SP-02,7,15/01/2022
+C0251,Madina Super Store,Retailer,Faisalabad,Madina Town,SP-10,7,25/12/2022
+C0252,Bismillah & Sons,Wholesaler,Karachi,Clifton,SP-01,30,13/12/2024
+C0253,Green Valley Super Store,Retailer,ISB,G-9,SP-14,7,06/04/2024
+C0254,Iqbal Superstore,Modern Trade,Hyderabad,Saddar,SP-04,45,22/08/2024
+C0255,New Karyana,Retailer,Karachi,Korangi,SP-01,7,21/10/2023
+C0256,Pak Fresh Mart,Modern Trade,Rawalpindi,Chaklala,SP-15,45,04/12/2022
+C0257,Al-Habib Karyana,Retailer,Karachi,Defence,SP-03,7,14/11/2022
+C0258,Usman Traders,Wholesaler,Hyderabad,Qasimabad,SP-04,30,19/02/2025
+C0259,Star Mart,Retailer,Karachi,Malir,SP-02,7,31/05/2024
+C0260,Karim Karyana,Retailer,Karachi,Saddar,SP-03,7,30/04/2024
+C0261,City Enterprises,Wholesaler,Karachi,Gulshan,SP-01,30,06/08/2023
+C0262,City Superstore,Modern Trade,Karachi,Clifton,SP-02,45,19/12/2024
+C0263,Al-Habib Enterprises,Wholesaler,Karachi,Clifton,SP-03,30,16/10/2024
+C0264,Crescent Karyana,Retailer,Karachi,Korangi,SP-01,7,18/09/2023
+C0265,Madina Mart,Retailer,Faisalabad,D-Ground,SP-10,7,25/03/2024
+C0266,Rehman Kiryana Store,Retailer,Multan,Bosan Road,,7,28/08/2022
+C0267,Iqbal Super Store,Retailer,Lahore,Iqbal Town,SP-06,7,28/04/2025
+C0268,Ali Kiryana Store,Retailer,Hyderabad,Saddar,SP-04,7,24/05/2021
+C0269,City & Sons,Wholesaler,Lahore,Anarkali,SP-08,30,01/09/2022
+C0270,Madina Traders,Wholesaler,Rawalpindi,Bahria Town,SP-15,30,28/06/2022
+C0271,Usman & Sons,Wholesaler,Rawalpindi,Satellite Town,SP-16,30,22/03/2024
+C0272,Ghani Trading Co.,Wholesaler,Karachi,Clifton,SP-03,30,25/07/2023
+C0273,City Trading Co.,Wholesaler,Karachi,Korangi,SP-01,30,07/12/2023
+C0274,Sadiq Super Store,Retailer,Karachi,Malir,SP-02,7,17/09/2022
+C0275,Pak Karyana,Retailer,Karachi,Clifton,SP-03,7,04/09/2022
+C0276,Moon Super Store,Retailer,Faisalabad,Madina Town,SP-09,7,25/01/2022
+C0277,Ghani Enterprises,Wholesaler,Lahore,Johar Town,SP-07,30,30/10/2023
+C0278,Bismillah Kiryana Store,Retailer,Krachi,Clifton,SP-03,7,15/02/2024
+C0279,Bismillah Mart,Retailer,Lahore,Shadman,,7,28/09/2024
+C0280,Moon Kiryana Store,Retailer,Lahore,Johar Town,SP-07,7,10/06/2023
+C0281,Hamza Super Store,Retailer,Karachi,Clifton,SP-03,7,15/02/2023
+C0282,Ali Mart,Retailer,Rawalpindi,Bahria Town,SP-15,7,17/11/2021
+C0283,Bismillah Superstore,Modern Trade,Karachi,Clifton,SP-02,45,06/03/2024
+C0284,Usman Karyana,Retailer,Pindi,Satellite Town,SP-15,7,09/04/2023
+C0285,Shaheen Karyana,Retailer,Karachi,Saddar,SP-01,7,03/07/2024
+C0286,Al-Noor Trading Co.,Wholesaler,rawalpindi,Bahria Town,SP-15,30,01/06/2025
+C0287,Moon Kiryana Store,Retailer,Rawalpindi,Chaklala,SP-16,7,07/01/2025
+C0288,Bismillah Traders,Wholesaler,Peshawar,Saddar,SP-17,30,11/04/2025
+C0289,Ghani Super Store,Retailer,Islamabad,E-11,SP-14,7,15/01/2024
+C0290,Royal Karyana,Retailer,Islamabad,G-9,SP-13,7,28/09/2024
+C0291,Al-Noor Karyana,Retailer,Faisalabad,Madina Town,SP-10,7,03/05/2024
+C0292,Bismillah General Store,Retailer,Islamabad,E-11,SP-13,7,08/02/2022
+C0293,City Hypermart,Modern Trade,Karachi,Korangi,SP-03,45,30/03/2025
+C0294,Green Valley General Store,Retailer,Lahore,Johar Town,SP-06,7,16/01/2025
+C0295,Shaheen Mart,Retailer,Lahore,Model Town,SP-07,7,20/01/2023
+C0296,Bismillah Mart,Retailer,Rawalpindi,Chaklala,SP-15,7,19/05/2024
+C0297,Crescent Trading Co.,Wholesaler,Lahore,Shadman,SP-06,30,01/04/2023
+C0298,Crescent Wholesale,Wholesaler,Lahore,Shadman,SP-07,30,26/05/2022
+C0299,New Fresh Mart,Modern Trade,Fsd,Madina Town,SP-10,45,05/10/2023
+C0300,Royal Karyana,Retailer,Hyderabad,Saddar,SP-04,7,14/07/2024
+C0301,Iqbal Karyana,Retailer,Krachi,Korangi,SP-02,7,19/07/2021
+C0302,Crescent General Store,Retailer,Lahore,Iqbal Town,SP-08,7,09/12/2024
+C0303,Haji General Store,Retailer,Lahore,Shadman,SP-06,7,06/10/2024
+C0304,Hamza Superstore,Modern Trade,Karachi,Clifton,SP-02,45,17/09/2024
+C0305,Sunrise Traders,Wholesaler,Lahore,Johar Town,SP-08,30,09/08/2022
+C0306,Usman Kiryana Store,Retailer,Lahore,Iqbal Town,SP-06,7,07/06/2021
+C0307,Madina Super Store,Retailer,Hyderabad,Qasimabad,SP-05,7,11/09/2024
+C0308,Moon Mega Mart,Modern Trade,Lahore,Anarkali,SP-08,45,12/08/2023
+C0309,Ghani General Store,Retailer,Multan,Cantt,SP-12,7,01/08/2021
+C0310,Ghani Karyana,Retailer,Hyderabad,Saddar,SP-04,7,28/06/2021
+C0311,Royal General Store,Retailer,Peshawar,Saddar,SP-18,7,07/12/2022
+C0312,Green Valley Mart,Retailer,Rawalpindi,Satellite Town,SP-15,7,12/07/2024
+C0313,Iqbal General Store,Retailer,Lahore,Iqbal Town,SP-07,7,27/05/2024
+C0314,Usman Kiryana Store,Retailer,Hyderabad,Qasimabad,SP-04,7,17/06/2022
+C0315,Shaheen General Store,Retailer,Lahore,Gulberg,SP-06,7,15/11/2023
+C0316,Faisal Karyana,Retailer,Rawalpindi,Bahria Town,SP-15,7,31/01/2022
+C0317,Royal General Store,Retailer,Multan,Gulgasht,SP-12,7,14/04/2023
+C0318,Moon Karyana,Retailer,Islamabad,E-11,SP-13,7,21/03/2025
+C0319,Al-Habib Mega Mart,Modern Trade,Lahore,Iqbal Town,SP-07,45,04/12/2022
+C0320,City & Sons,Wholesaler,Fsd,D-Ground,SP-09,30,15/05/2024
+C0321,Crescent General Store,Retailer,Hyderabad,Qasimabad,SP-05,7,31/12/2024
+C0322,Crescent Karyana,Retailer,Islamabad,F-7,SP-13,7,02/02/2022
+C0323,Rehman Superstore,Modern Trade,Karachi,Malir,SP-03,45,19/05/2022
+C0324,Star Mart,Retailer,Multan,Cantt,SP-11,7,30/04/2024
+C0325,Ali Karyana,Retailer,Rawalpindi,Saddar,SP-16,7,09/08/2023
+C0326,Ali Superstore,Modern Trade,Karachi,North Nazimabad,SP-03,45,23/02/2023
+C0327,New Super Store,Retailer,Faisalabad,Madina Town,SP-10,7,17/12/2023
+C0328,Faisal Trading Co.,Wholesaler,karachi ,North Nazimabad,SP-02,30,31/05/2025
+C0329,Green Valley Super Store,Retailer,Multan,Cantt,SP-12,7,21/04/2022
+C0330,City Karyana,Retailer,Karachi,North Nazimabad,SP-01,7,25/10/2022
+C0331,Zam Zam Karyana,Retailer,Peshawar,Saddar,SP-18,7,13/01/2025
+C0332,Zam Zam Super Store,Retailer,Karachi,Malir,SP-03,7,12/07/2023
+C0333,City Karyana,Retailer,Peshawar,Saddar,SP-18,7,05/07/2023
+C0334,Karim Mart,Retailer,Islamabad,F-7,SP-13,7,06/03/2025
+C0335,Royal Traders,Wholesaler,Faisalabad,Madina Town,SP-10,30,21/07/2023
+C0336,Bismillah Super Store,Retailer,Islamabad,Blue Area,SP-13,7,18/08/2024
+C0337,Madina Mart,Retailer,Islamabad,E-11,SP-14,7,29/10/2021
+C0338,Iqbal Traders,Wholesaler,Peshawar,University Town,SP-17,30,07/01/2025
+C0339,New Enterprises,Wholesaler,Karachi,Korangi,SP-01,30,27/04/2023
+C0340,Ali Super Store,Retailer,Faisalabad,Peoples Colony,SP-09,7,16/09/2024
+C0341,Royal General Store,Retailer,Karachi,Gulshan,SP-03,7,09/09/2024
+C0342,Al-Habib Mega Mart,Modern Trade,Faisalabad,D-Ground,SP-09,45,17/02/2024
+C0343,Moon Super Store,Retailer,karachi ,Saddar,SP-02,7,22/04/2023
+C0344,Madina Trading Co.,Wholesaler,Faisalabad,D-Ground,SP-09,30,24/12/2023
+C0345,Moon Superstore,Modern Trade,Faisalabad,Madina Town,SP-10,45,25/09/2023
+C0346,Pak Traders,Wholesaler,Lahore,Iqbal Town,SP-07,30,04/08/2024
+C0347,Usman General Store,Retailer,Lahore,Anarkali,SP-08,7,08/08/2022
+C0348,Bismillah Kiryana Store,Retailer,Islamabad,E-11,SP-13,7,06/01/2025
+C0349,New Karyana,Retailer,Islamabad,E-11,SP-14,7,27/07/2023
+C0350,Usman Super Store,Retailer,Lahore,Iqbal Town,SP-08,7,04/12/2022
+C0351,Shaheen Fresh Mart,Modern Trade,Faisalabad,D-Ground,SP-10,45,17/07/2021
+C0352,Crescent Mart,Retailer,Peshawar,Saddar,SP-17,7,20/05/2022
+C0353,Shaheen General Store,Retailer,Karachi,Clifton,SP-03,7,03/11/2024
+C0354,Zam Zam Mart,Retailer,Karachi,Clifton,SP-01,7,28/05/2021
+C0355,Madina Cash & Carry,Modern Trade,Karachi,Malir,SP-02,45,02/03/2025
+C0356,Ghani Mart,Retailer,Multan,Bosan Road,SP-11,7,11/02/2024
+C0357,Pak Super Store,Retailer,lahore,Model Town,SP-06,7,24/09/2021
+C0358,Zam Zam Mart,Retailer,Islamabad,Blue Area,SP-13,7,04/03/2022
+C0359,Karim Super Store,Retailer,Multan,Gulgasht,SP-12,7,08/02/2024
+C0360,Hamza Kiryana Store,Retailer,Lahore,Iqbal Town,SP-06,7,30/05/2023
+C0361,FreshCart Express E-11,Modern Trade,Islamabad,G-9,SP-13,45,02/07/2026
+C0362,FreshCart Hypermart Chaklala,Modern Trade,Rawalpindi,Saddar,SP-16,45,24/06/2026
+C0363,FreshCart Fresh Mart I-8,Modern Trade,Islamabad,E-11,SP-13,45,19/06/2026
+C0364,FreshCart Express Chaklala,Modern Trade,Rawalpindi,Chaklala,SP-16,45,06/06/2026
+C0365,FreshCart Hypermart G-9,Modern Trade,ISB,E-11,SP-13,45,27/06/2026
+C0366,FreshCart Fresh Mart Saddar,Modern Trade,Rawalpindi,Satellite Town,SP-16,45,13/06/2026

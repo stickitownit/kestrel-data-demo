@@ -1,0 +1,157 @@
+table mart_product_city_trend
+	lineageTag: 58dcdb78-2263-5752-aa86-989a58da06d9
+
+	measure 'Seasonality Index' = AVERAGE(mart_product_city_trend[seasonality_adjusted_index])
+		formatString: 0.00
+		lineageTag: 19c60d17-f4b6-5dbc-967d-d4a6fd667ccd
+
+	measure 'Slowing Products' = CALCULATE(COUNTROWS(mart_product_city_trend), mart_product_city_trend[lost_sales_per_month] >= 200000)
+		formatString: #,0
+		lineageTag: 5348356a-97a3-5bcf-9142-035df645964a
+
+	measure 'Lost Sales per Month' = CALCULATE(SUM(mart_product_city_trend[lost_sales_per_month]), mart_product_city_trend[lost_sales_per_month] >= 200000)
+		formatString: #,0
+		lineageTag: dd79813e-bcfc-5577-b736-8208d1758cfe
+
+	measure 'Lost Sales Text' = VAR v = [Lost Sales per Month] RETURN IF(ISBLANK(v), BLANK(), IF(ABS(v) >= 10000000, "Rs " & FORMAT(v / 10000000, "0.0") & " Cr", "Rs " & FORMAT(v / 100000, "0.0") & " lakh"))
+		lineageTag: ba010319-2b27-54ae-b697-67957104751e
+
+	measure 'Slowdown Detail' = VAR t = TOPN(1, mart_product_city_trend, mart_product_city_trend[lost_sales_per_month], DESC) RETURN [Slowing Products] & " slowdowns · biggest: " & MAXX(t, mart_product_city_trend[product_name]) & " (" & MAXX(t, mart_product_city_trend[city]) & ")"
+		lineageTag: b64f742a-7210-536a-8917-e45075fa5f14
+
+	column product_city_id
+		dataType: string
+		lineageTag: 865433c9-5705-5f16-8842-93d12d6925c3
+		summarizeBy: none
+		sourceColumn: product_city_id
+
+	column product_sku
+		dataType: string
+		lineageTag: 6c7731e4-0d95-5c32-a69d-72c980aa9f1b
+		summarizeBy: none
+		sourceColumn: product_sku
+
+	column product_name
+		dataType: string
+		lineageTag: 5ab2033b-3bc1-5413-aaad-c0789c8f1272
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column category
+		dataType: string
+		lineageTag: 77d3995b-7532-5ddf-95b0-570a2a70d29e
+		summarizeBy: none
+		sourceColumn: category
+
+	column city
+		dataType: string
+		lineageTag: fa7f81a7-9e1f-5780-96a7-2c605991a33b
+		summarizeBy: none
+		sourceColumn: city
+
+	column as_of_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3d8f4cef-af64-5fef-9360-8f437eda9692
+		summarizeBy: none
+		sourceColumn: as_of_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cur_start
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 7e06bbe3-19eb-5aed-b61b-c027b2752148
+		summarizeBy: none
+		sourceColumn: cur_start
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column base_start
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 70e39ebe-6e6c-52b5-9463-8ce7b9f0495a
+		summarizeBy: none
+		sourceColumn: base_start
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column units_cur
+		dataType: double
+		formatString: #,0
+		lineageTag: 86a88061-07c6-526c-9c47-b330dcc3b7bc
+		summarizeBy: sum
+		sourceColumn: units_cur
+
+	column units_base
+		dataType: double
+		formatString: #,0
+		lineageTag: e4d0ac70-d4dd-5123-89b5-ede23d1a620e
+		summarizeBy: sum
+		sourceColumn: units_base
+
+	column daily_units_cur
+		dataType: double
+		lineageTag: 3de5ca9c-c8e8-5a52-8b94-a1a5449ebcb8
+		summarizeBy: sum
+		sourceColumn: daily_units_cur
+
+	column daily_units_base
+		dataType: double
+		lineageTag: d49ba947-7bb6-5bea-bede-da8643bd547c
+		summarizeBy: sum
+		sourceColumn: daily_units_base
+
+	column city_change
+		dataType: double
+		lineageTag: b8cc8030-4462-5607-b545-4bd9d570375a
+		summarizeBy: sum
+		sourceColumn: city_change
+
+	column rest_of_country_change
+		dataType: double
+		lineageTag: f3bfcb6c-cd14-5c7a-9b67-66b68def5ad0
+		summarizeBy: sum
+		sourceColumn: rest_of_country_change
+
+	column seasonality_adjusted_index
+		dataType: double
+		lineageTag: 33a2e54b-a2d9-5577-bda3-b0c3da3a514d
+		summarizeBy: sum
+		sourceColumn: seasonality_adjusted_index
+
+	column is_slowing
+		dataType: boolean
+		lineageTag: 172630bf-41a3-5c35-ac60-92bc0413dea5
+		summarizeBy: none
+		sourceColumn: is_slowing
+
+	column slowdown_rank_in_city
+		dataType: int64
+		formatString: #,0
+		lineageTag: 6861ceb1-2b3b-5f7f-be56-d948ce551433
+		summarizeBy: none
+		sourceColumn: slowdown_rank_in_city
+
+	column lost_sales_per_month = IF(mart_product_city_trend[is_slowing], VAR sku = mart_product_city_trend[product_sku] VAR price = CALCULATE(DIVIDE(SUM(rpt_sales_overview[net_amount_pkr]), SUM(rpt_sales_overview[quantity])), REMOVEFILTERS(), rpt_sales_overview[product_sku] = sku, rpt_sales_overview[is_return] = FALSE()) VAR gap = mart_product_city_trend[daily_units_base] * mart_product_city_trend[rest_of_country_change] - mart_product_city_trend[daily_units_cur] RETURN MAX(0, gap) * 30 * price, 0)
+		dataType: double
+		formatString: \R\s #,0
+		lineageTag: 7d547be9-a7dc-5b83-a6e8-a5371a62a1a5
+		summarizeBy: sum
+
+	column lost_lakh = mart_product_city_trend[lost_sales_per_month] / 100000
+		dataType: double
+		formatString: \R\s 0.0 \l\a\k\h
+		lineageTag: b06064e9-c03e-597f-a9a1-edb9f4c8c76e
+		summarizeBy: sum
+
+	partition mart_product_city_trend = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "\mart_product_city_trend.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"product_city_id", type text}, {"product_sku", type text}, {"product_name", type text}, {"category", type text}, {"city", type text}, {"as_of_date", type date}, {"cur_start", type date}, {"base_start", type date}, {"units_cur", type number}, {"units_base", type number}, {"daily_units_cur", type number}, {"daily_units_base", type number}, {"city_change", type number}, {"rest_of_country_change", type number}, {"seasonality_adjusted_index", type number}, {"is_slowing", type logical}, {"slowdown_rank_in_city", Int64.Type}}, "en-US")
+				in
+					Typed
+

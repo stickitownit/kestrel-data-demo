@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets
+.env
+
+# Local warehouse (rebuilt by `python run.py all`)
+warehouse/*.duckdb
+warehouse/*.duckdb.wal
+
+# dbt artifacts
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dbt/.user.yml
+logs/
+
+# Power BI CSV extracts (rebuilt by `python run.py powerbi`)
+powerbi/data/
+
+# Power BI project local files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+_to_delete/

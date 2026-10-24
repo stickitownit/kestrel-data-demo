@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["dim_date","rpt_sales_overview","mart_product_city_trend","mart_salesperson_attainment","mart_stock_cover","mart_customer_activity","mart_data_quality","DataFolder"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_date
+ref table rpt_sales_overview
+ref table mart_product_city_trend
+ref table mart_salesperson_attainment
+ref table mart_stock_cover
+ref table mart_customer_activity
+ref table mart_data_quality
+
+ref cultureInfo en-US
+

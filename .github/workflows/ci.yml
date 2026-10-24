@@ -1,0 +1,27 @@
+name: dbt build (DuckDB)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Regenerate sample data (seeded, identical every run)
+        run: python run.py data
+      - name: Load raw tables and run dbt build (models + tests + reconciliation)
+        run: python run.py all
+      - name: Keep dbt artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbt-target
+          path: dbt/target/run_results.json

@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: rpt_sales_overview
+    description: >
+      Dashboard table for the Overview page (Looker Studio). Same rows as
+      fct_sales_lines, with names joined in. Net sales here must equal fct_sales_lines.
+    columns:
+      - name: invoice_line_id
+        tests: [unique, not_null]
+      - name: category
+        tests: [not_null]

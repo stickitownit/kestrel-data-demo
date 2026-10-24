@@ -1,0 +1,152 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "data_quality_v07",
+  "position": {
+    "x": 20,
+    "y": 224,
+    "z": 7000,
+    "height": 480,
+    "width": 892,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_data_quality"
+                    }
+                  },
+                  "Property": "sort_order"
+                }
+              },
+              "queryRef": "mart_data_quality.sort_order",
+              "nativeQueryRef": "sort_order",
+              "displayName": "#"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_data_quality"
+                    }
+                  },
+                  "Property": "issue"
+                }
+              },
+              "queryRef": "mart_data_quality.issue",
+              "nativeQueryRef": "issue",
+              "displayName": "Problem"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_data_quality"
+                    }
+                  },
+                  "Property": "source_system"
+                }
+              },
+              "queryRef": "mart_data_quality.source_system",
+              "nativeQueryRef": "source_system",
+              "displayName": "Source"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_data_quality"
+                    }
+                  },
+                  "Property": "affected_count"
+                }
+              },
+              "queryRef": "mart_data_quality.affected_count",
+              "nativeQueryRef": "affected_count",
+              "displayName": "Rows affected"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_data_quality"
+                    }
+                  },
+                  "Property": "handling"
+                }
+              },
+              "queryRef": "mart_data_quality.handling",
+              "nativeQueryRef": "handling",
+              "displayName": "How it was fixed"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "mart_data_quality"
+                  }
+                },
+                "Property": "sort_order"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Problems found in the source data'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

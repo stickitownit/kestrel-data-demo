@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: int_sales_lines_enriched
+    description: Invoice lines joined to header, customer (canonical city, warehouse) and product.
+    data_tests:
+      - row_count_equals: {expected: 101437}
+    columns:
+      - name: invoice_line_id
+        data_tests: [unique, not_null]
+      - name: city
+        data_tests: [not_null]
+      - name: warehouse_id
+        data_tests: [not_null]
+
+  - name: int_invoice_reconciliation
+    description: >
+      Header total vs sum of lines for every document. 80 headers are wrong in
+      the export; the test warns at exactly 80 and errors if that changes.
+    data_tests:
+      - row_count_equals: {expected: 15949}
+    columns:
+      - name: invoice_id
+        data_tests: [unique, not_null]
+      - name: line_count
+        description: Every document must have at least one line.
+        data_tests:
+          - accepted_range_min_1
+      - name: is_mismatch
+        data_tests:
+          - count_where_true:
+              config:
+                severity: error
+                warn_if: "!=0"
+                error_if: "!=80"

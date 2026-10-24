@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: stg_inv__stock_snapshots
+    description: Weekly closing stock, one row per warehouse x SKU x week.
+    data_tests:
+      - unique_combination: {columns: [warehouse_id, week_ending, sku]}
+    columns:
+      - name: warehouse_id
+        data_tests:
+          - not_null
+          - accepted_values: {values: [KHI-WH, LHE-WH, ISB-WH]}
+      - name: week_ending
+        data_tests: [not_null]
+      - name: sku
+        description: >
+          The discontinued SKU KD-SNK-099 (missing from the product master) still
+          appears in the stock report: 68 weeks x 3 warehouses = 204 rows. Warns at
+          exactly 204, errors if that number changes.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_erp__products')
+              field: sku
+              config:
+                severity: error
+                warn_if: "!=0"
+                error_if: "!=204"
+      - name: closing_qty
+        data_tests: [not_null]
+
+  - name: stg_inv__goods_receipts
+    description: Goods received notes (GRNs), one row per receipt.
+    columns:
+      - name: grn_id
+        data_tests: [unique, not_null]
+      - name: receipt_date
+        data_tests: [not_null]
+      - name: warehouse_id
+        data_tests:
+          - accepted_values: {values: [KHI-WH, LHE-WH, ISB-WH]}
+      - name: sku
+        data_tests:
+          - not_null
+          - relationships: {to: ref('stg_erp__products'), field: sku}
+      - name: qty_received
+        data_tests: [not_null]

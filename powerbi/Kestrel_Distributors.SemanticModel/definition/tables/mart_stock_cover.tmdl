@@ -1,0 +1,116 @@
+table mart_stock_cover
+	lineageTag: a3f7318c-9b61-5b93-8ed6-6b358d50f058
+
+	measure 'Days of Cover' = MIN(mart_stock_cover[days_of_cover])
+		formatString: 0.0
+		lineageTag: aa542a2c-bfbb-5810-9d60-34c3b6f5b156
+
+	measure 'Low Stock Items' = CALCULATE(COUNTROWS(mart_stock_cover), mart_stock_cover[is_low_stock] = TRUE())
+		formatString: #,0
+		lineageTag: be98e1a5-b23f-5e85-aacf-d7f39d2d157f
+
+	measure 'Sales at Risk per Day' = SUMX(FILTER(mart_stock_cover, mart_stock_cover[is_low_stock]), VAR sku = mart_stock_cover[product_sku] VAR price = CALCULATE(DIVIDE(SUM(rpt_sales_overview[net_amount_pkr]), SUM(rpt_sales_overview[quantity])), REMOVEFILTERS(rpt_sales_overview), REMOVEFILTERS(dim_date), rpt_sales_overview[product_sku] = sku, rpt_sales_overview[is_return] = FALSE()) RETURN mart_stock_cover[avg_units_per_day_28d] * price)
+		formatString: #,0
+		lineageTag: 4c13c53f-d859-511f-a271-3a160a1a5efe
+
+	measure 'Stock Risk Text' = VAR v = [Sales at Risk per Day] RETURN IF(ISBLANK(v) || v = 0, "Rs 0", IF(v >= 10000000, "Rs " & FORMAT(v / 10000000, "0.0") & " Cr", "Rs " & FORMAT(v / 100000, "0.0") & " lakh"))
+		lineageTag: 0e176936-f49f-5066-a541-7f4d65a725ff
+
+	measure 'Stock Detail' = VAR t = TOPN(1, FILTER(mart_stock_cover, NOT ISBLANK(mart_stock_cover[days_of_cover])), mart_stock_cover[days_of_cover], ASC) RETURN MAXX(t, mart_stock_cover[product_name]) & " · " & MAXX(t, mart_stock_cover[warehouse_id]) & " · " & FORMAT(MAXX(t, mart_stock_cover[days_of_cover]), "0.0") & " days left"
+		lineageTag: 9baa0ee0-e8b5-585a-b70c-6cc176ec3471
+
+	measure 'Stock Status' = VAR lowN = [Low Stock Items] VAR t = TOPN(1, FILTER(mart_stock_cover, NOT ISBLANK(mart_stock_cover[days_of_cover])), mart_stock_cover[days_of_cover], ASC) VAR p = MAXX(t, mart_stock_cover[product_name]) VAR w = MAXX(t, mart_stock_cover[warehouse_id]) VAR d = FORMAT(MAXX(t, mart_stock_cover[days_of_cover]), "0.0") RETURN IF(lowN > 0, p & " at " & w & " has " & d & " days of stock left. Reorder now: running out costs about " & [Stock Risk Text] & " of sales a day.", "Nothing below 7 days here. Lowest cover: " & p & " at " & w & ", " & d & " days.")
+		lineageTag: c9e32be3-4834-59de-a014-3b89554dfa28
+
+	measure 'Sales at Risk Value' = COALESCE([Sales at Risk per Day], 0)
+		formatString: #,0
+		lineageTag: fbabd757-f69d-5e55-8ecc-f421818b483d
+
+	column stock_cover_id
+		dataType: string
+		lineageTag: f2eda04f-5089-529b-bcfe-460467fd6489
+		summarizeBy: none
+		sourceColumn: stock_cover_id
+
+	column warehouse_id
+		dataType: string
+		lineageTag: 5590371b-4201-540a-99da-2c8d057d9b70
+		summarizeBy: none
+		sourceColumn: warehouse_id
+
+	column product_sku
+		dataType: string
+		lineageTag: 6373b5c0-0b3d-59b9-809d-58ae73f36164
+		summarizeBy: none
+		sourceColumn: product_sku
+
+	column sku_original
+		dataType: string
+		lineageTag: b81ea17a-f159-54da-995c-c6efaae22734
+		summarizeBy: none
+		sourceColumn: sku_original
+
+	column product_name
+		dataType: string
+		lineageTag: 9e899e48-1379-57f8-9390-4cc00163276e
+		summarizeBy: none
+		sourceColumn: product_name
+
+	column category
+		dataType: string
+		lineageTag: c5dffa0e-d1b8-5815-81af-ca993ba03f4f
+		summarizeBy: none
+		sourceColumn: category
+
+	column snapshot_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 844f4635-6542-5483-9f9a-990363c7356b
+		summarizeBy: none
+		sourceColumn: snapshot_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column closing_qty
+		dataType: int64
+		formatString: #,0
+		lineageTag: e7cd1467-d07f-51b1-9af4-32b1e0815cb5
+		summarizeBy: sum
+		sourceColumn: closing_qty
+
+	column units_sold_28d
+		dataType: double
+		formatString: #,0
+		lineageTag: c585a492-e270-585e-92f2-550358f71759
+		summarizeBy: sum
+		sourceColumn: units_sold_28d
+
+	column avg_units_per_day_28d
+		dataType: double
+		formatString: #,0
+		lineageTag: 9e66be1d-2081-58dd-a4f9-9c65493bd478
+		summarizeBy: sum
+		sourceColumn: avg_units_per_day_28d
+
+	column days_of_cover
+		dataType: double
+		lineageTag: 102d712d-3a40-5f58-bafe-780f27580f25
+		summarizeBy: sum
+		sourceColumn: days_of_cover
+
+	column is_low_stock
+		dataType: boolean
+		lineageTag: ee80e6ca-983f-5d49-a4df-644d4931809d
+		summarizeBy: none
+		sourceColumn: is_low_stock
+
+	partition mart_stock_cover = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "\mart_stock_cover.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"stock_cover_id", type text}, {"warehouse_id", type text}, {"product_sku", type text}, {"sku_original", type text}, {"product_name", type text}, {"category", type text}, {"snapshot_date", type date}, {"closing_qty", Int64.Type}, {"units_sold_28d", type number}, {"avg_units_per_day_28d", type number}, {"days_of_cover", type number}, {"is_low_stock", type logical}}, "en-US")
+				in
+					Typed
+

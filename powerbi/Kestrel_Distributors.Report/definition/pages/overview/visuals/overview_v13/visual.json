@@ -1,0 +1,244 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "overview_v13",
+  "position": {
+    "x": 20,
+    "y": 506,
+    "z": 13000,
+    "height": 198,
+    "width": 620,
+    "tabOrder": 13000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_customer_activity"
+                    }
+                  },
+                  "Property": "customer_name"
+                }
+              },
+              "queryRef": "mart_customer_activity.customer_name",
+              "nativeQueryRef": "customer_name",
+              "displayName": "Customer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_customer_activity"
+                    }
+                  },
+                  "Property": "city"
+                }
+              },
+              "queryRef": "mart_customer_activity.city",
+              "nativeQueryRef": "city",
+              "displayName": "City"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_customer_activity"
+                    }
+                  },
+                  "Property": "last_order_date"
+                }
+              },
+              "queryRef": "mart_customer_activity.last_order_date",
+              "nativeQueryRef": "last_order_date",
+              "displayName": "Last order"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_customer_activity"
+                    }
+                  },
+                  "Property": "days_since_last_order"
+                }
+              },
+              "queryRef": "mart_customer_activity.days_since_last_order",
+              "nativeQueryRef": "days_since_last_order",
+              "displayName": "Days since"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "mart_customer_activity"
+                    }
+                  },
+                  "Property": "Customer Monthly Value"
+                }
+              },
+              "queryRef": "mart_customer_activity.Customer Monthly Value",
+              "nativeQueryRef": "Customer Monthly Value",
+              "displayName": "Usual monthly sales"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "mart_customer_activity"
+                  }
+                },
+                "Property": "Customer Monthly Value"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "202.381273086556D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "mart_customer_activity.Customer Monthly Value"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "171.90705493641508D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "mart_customer_activity.customer_name"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Stopped ordering (all cities): 9 in Multan, about Rs 7 lakh a month'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f_churn",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "mart_customer_activity"
+              }
+            },
+            "Property": "is_churned"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "x",
+              "Entity": "mart_customer_activity",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "x"
+                          }
+                        },
+                        "Property": "is_churned"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "true"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
